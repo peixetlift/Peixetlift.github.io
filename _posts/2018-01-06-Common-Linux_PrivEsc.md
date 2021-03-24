@@ -48,8 +48,9 @@ cat /etc/passwd | grep user*
 >
 >`grep` allows us to look for patterns in texts, by typing `grep user*` we are searching for any pattern that contains the word "user" and any other character next to it (this is why we use the wildcard *)
 
-<p class="answer">As we can observe, there are 8 user[x] in the system.</p>
-
+* * *
+<p class="answer">Answer : there are 8 user[x] in the system.</p>
+* * *
 For a beteter understanding of wildcards in Linux, you can visit [this page](https://geek-university.com/linux/wildcard/) 
 
 The next step is to find how many shells are there on the system, to guess so, we need to start enumerating with `LinEnum.sh`.
@@ -76,8 +77,10 @@ Once we have run the script, we can look for how many shels there are on the sys
 cat linEnum.txt | grep shell
 ```
 
-<p class="answer">There are 4 shells in the system</p>
-
+* * *
+<p class="answer">Answer : There are 4 shells in the system</p>
+* * *
+* 
 We are now asked what is the name of the bash script that is set to run every 5 minutes by cron.
 Cron is used to automate tasks in Linux, its syntax can be a little bit tricky so if you need some more info you can have a look at [this site](https://linuxhandbook.com/crontab/)
 
@@ -91,7 +94,9 @@ cat linEnum.txt | grep crontab -C 10
 
 >If you have read the previous tasks, you already know what this is doing, the only novelty is the `-C` option, which specifies how many lines of context you want to display.
 
-<p class="answer">As shown in this output, the `autoscript.sh` file is located in `/home/user4/Desktop directory`</p>
+* * *
+<p class="answer">Answer : The `autoscript.sh` file is located in `/home/user4/Desktop directory`</p>
+* * *
 
 Finally, we want to search for a file that has had its permissions changed, and now users are allowed to write to it :
 
