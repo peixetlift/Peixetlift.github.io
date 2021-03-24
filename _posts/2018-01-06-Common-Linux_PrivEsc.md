@@ -163,9 +163,9 @@ When a user can write in the /etc/passwd file, it can lead to a security breach,
 
 What direction privilege escalation is the attack?
 
-<p class="highlight">Horizontal privilege escalation</p> occurs when we take over a user who is on the same privilege level as us.
+<p class="highlight">Horizontal privilege escalation</p> Occurs when we take over a user who is on the same privilege level as us.
 
-<p class="highlight">Vertical privilege escalation</p> takes place when we want to access an account which privileges are higher than ours.
+<p class="highlight">Vertical privilege escalation</p> Takes place when we want to access an account which privileges are higher than ours.
 
 * * *
 <p class="answer"> Answer : Vertical</p>
