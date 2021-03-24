@@ -219,6 +219,35 @@ su new
 ```
 >`su` stands for "switch user", so what we have done is change our account to the one we created and voilà, we have escalated privileges.
 
+## Task 7 : Escaping vi editor
+
+Another must when it comes to privilege scalation is running `sudo -l` when we get a shell, this command will display what commands we can run as superuser.
+
+<img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/gaining%20root6.png" class="border" />
+
+```
+sudo -l
+```
+
+* * *
+<span class="answer">Answer : NOPASSWD</span>
+* * *
+
+Sometimes, some tools can spawn a shell, just like what happens in this case with `vi`, we can enter the editor and use the command `:sh!`.
+
+For more info on `vi`, I like [this site](https://www.computerhope.com/unix/uvi.htm).
+
+<img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/root7.png" class="border" />
+
+```
+sudo vi
+```
+>we execute `vi` as superuser (because we saw that we have that privilege).
+>
+>once inside `vi`, we can spawn the shell and it will be run as root
+
+## Task 8 : Exploiting crontab
+
 <style>
   .border {   
   border-width: 0px;
