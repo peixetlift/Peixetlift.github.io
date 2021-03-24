@@ -1,5 +1,5 @@
 ---
-title: Common Linux PrivEsc detailed wirte-up
+title: Common Linux PrivEsc detailed write-up
 published: true
 ---
 Tasks **1**, **2**, and **3** don't need explanation.
