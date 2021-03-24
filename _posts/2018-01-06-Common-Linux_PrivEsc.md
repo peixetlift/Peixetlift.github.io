@@ -156,6 +156,22 @@ ls -l /home/user3/shell
 >**Notice that they are marked with an `s`**
 
 ## Task 6 : Exploiting writeable /etc/passwd
+
+The /etc/passwd file stores valuable account information, **it doesn't contain passwords**, it contains a list of the accounts of the system and it provides information about eeach and every of them, such as user ID, group ID, home directory, etc.
+This file needs to have read permissions because other utilities require it to properly work, however it must not have write permissions except for the root account.
+When a user can write in the /etc/passwd file, it can lead to a security breach, which is what we are going to exploit right about now :
+
+What direction privilege escalation is the attack?
+
+Horizontal privilege escalation occurs when we take over a user who is on the same privilege level as us. 
+Vertical privilege escalation takes place when we want to access an account which privileges are higher than ours.
+
+* * *
+<p class="Answer"> Answer : Vertical</p>
+* * *
+
+The way to exploit the vulnerability that we have found (which is that /etc/passwd can be writen to by a non-superuser account) is adding a new line of text to /etc/passwd with the intention of creating a new account in the system, with the password that we decide, and superuser privileges.
+
 <style>
   .border {   
   border-width: 0px;
