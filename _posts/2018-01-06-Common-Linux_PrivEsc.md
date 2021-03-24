@@ -2,7 +2,7 @@
 title: Common Linux PrivEsc detailed write-up | TryHackMe
 published: true
 ---
-Tasks **1**, **2** and **3** don't need explanation.
+Tasks <p class="highlight">1</p>, <p class="highlight">2</p> and <p class="highlight">3</p> don't need explanation.
 
 ## Task 4 : Enumeration
 
@@ -122,7 +122,7 @@ Checking for files with the `SUID/SGID` bit set is the go-to when first getting 
 
 If the `SUID` bit is set on a file, it means that the file will be executed with the same permissions as the owner of the file.
 If the `SGID` bit is set on a file, the file will be executed with the permissions of the group that owns the file.
-**Important : SUID and SGID have different behaviour when they are set in directories**
+<p class="highlight">Important : SUID and SGID have different behaviour when they are set in directories</p>
 
 In order to find files with the SUID bit set, we can have a look at our `LinEnum` scan, or we can search them manually :
 
@@ -153,24 +153,27 @@ ls -l /home/user3/shell
 >
 >If they are : `rwx-rws-rwx`, the `SGID` bit is set.
 >
->**Notice that they are marked with an `s`**
+><p class="highlight"> Notice that they are marked with the character "s".</p>
 
 ## Task 6 : Exploiting writeable /etc/passwd
 
-The /etc/passwd file stores valuable account information, **it doesn't contain passwords**, it contains a list of the accounts of the system and it provides information about eeach and every of them, such as user ID, group ID, home directory, etc.
-This file needs to have read permissions because other utilities require it to properly work, however it must not have write permissions except for the root account.
+The `/etc/passwd` file stores valuable account information, <p class="highlight">it doesn't contain passwords</p>, it contains a list of the accounts of the system and it provides information about each and every of them, such as user ID, group ID, home directory, etc.
+This file needs to have read permissions because other utilities require them to properly work, however it must not have write permissions except for the root account.
 When a user can write in the /etc/passwd file, it can lead to a security breach, which is what we are going to exploit right about now :
 
 What direction privilege escalation is the attack?
 
-Horizontal privilege escalation occurs when we take over a user who is on the same privilege level as us. 
-Vertical privilege escalation takes place when we want to access an account which privileges are higher than ours.
+<p class="highlight">Horizontal privilege escalation</p> occurs when we take over a user who is on the same privilege level as us.
+
+<p class="highlight">Vertical privilege escalation</p> takes place when we want to access an account which privileges are higher than ours.
 
 * * *
 <p class="answer"> Answer : Vertical</p>
 * * *
 
 The way to exploit the vulnerability that we have found (which is that /etc/passwd can be writen to by a non-superuser account) is adding a new line of text to /etc/passwd with the intention of creating a new account in the system, with the password that we decide, and superuser privileges.
+
+**How is the /etc/passwd structured?**
 
 <style>
   .border {   
@@ -180,4 +183,6 @@ The way to exploit the vulnerability that we have found (which is that /etc/pass
   box-shadow: 0px 0px 8px #ADFF2F} 
  .answer {
  text-shadow : 0px 0px 4px #ADFF2F }
+ .highlight {
+ text-shadow : 0px 0px 4px #ff6699 }
 </style>
