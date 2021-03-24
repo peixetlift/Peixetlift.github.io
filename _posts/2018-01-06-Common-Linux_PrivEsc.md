@@ -48,7 +48,7 @@ cat /etc/passwd | grep user*
 >
 >`grep` allows us to look for patterns in texts, by typing `grep user*` we are searching for any pattern that contains the word "user" and any other character next to it (this is why we use the wildcard *)
 
-**As we can observe, there are 8 user[x] in the system.**
+<p class="answer">As we can observe, there are 8 user[x] in the system.</p>
 
 For a beteter understanding of wildcards in Linux, you can visit [this page](https://geek-university.com/linux/wildcard/) 
 
@@ -119,4 +119,6 @@ ls -l /etc/passwd
   border-color: #7FFF00;
   border-style: groove;
   box-shadow: 0px 0px 8px #ADFF2F} 
+ .answer {
+ color : #7FFF00 }
 </style>
