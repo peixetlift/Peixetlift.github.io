@@ -69,7 +69,7 @@ A better way of keeping our enumeration clean and easily manageable is to write 
 
 > The file can be named as what you want, but I recommend using a name such as "LinEnum" or "Enumeration".
 
-Once we have run the script, we can look for how many shels there are on the system :
+Once we have run the script, we can look for how many shells there are on the system :
 
 <img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/grep%20shell4.png" class="border" />
 
@@ -167,7 +167,7 @@ Horizontal privilege escalation occurs when we take over a user who is on the sa
 Vertical privilege escalation takes place when we want to access an account which privileges are higher than ours.
 
 * * *
-<p class="Answer"> Answer : Vertical</p>
+<p class="answer"> Answer : Vertical</p>
 * * *
 
 The way to exploit the vulnerability that we have found (which is that /etc/passwd can be writen to by a non-superuser account) is adding a new line of text to /etc/passwd with the intention of creating a new account in the system, with the password that we decide, and superuser privileges.
