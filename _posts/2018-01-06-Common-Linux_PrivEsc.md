@@ -80,7 +80,7 @@ cat linEnum.txt | grep shell
 * * *
 <p class="answer">Answer : There are 4 shells in the system</p>
 * * *
-* 
+
 We are now asked what is the name of the bash script that is set to run every 5 minutes by cron.
 Cron is used to automate tasks in Linux, its syntax can be a little bit tricky so if you need some more info you can have a look at [this site](https://linuxhandbook.com/crontab/)
 
