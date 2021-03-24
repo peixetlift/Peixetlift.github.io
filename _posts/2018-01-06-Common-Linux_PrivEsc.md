@@ -4,7 +4,7 @@ published: true
 ---
 Tasks **1**, **2** and **3** don't need explanation.
 
-## Task 4
+## Task 4 : Enumeration
 
 To get LinEnum on the target's machine, you need to start a server on your local machine (it has to be in the directory where you store LinEnum.sh or you will have to provide the path to it afterwards) and connect to it from the target :
 
@@ -95,7 +95,7 @@ cat linEnum.txt | grep crontab -C 10
 >If you have read the previous tasks, you already know what this is doing, the only novelty is the `-C` option, which specifies how many lines of context you want to display.
 
 * * *
-<p class="answer">Answer : The `autoscript.sh` file is located in `/home/user4/Desktop directory`</p>
+<p class="answer">Answer : The `autoscript.sh` file is located in the "/home/user4/Desktop" directory</p>
 * * *
 
 Finally, we want to search for a file that has had its permissions changed, and now users are allowed to write to it :
@@ -116,7 +116,45 @@ ls -l /etc/passwd
 >A lot of files will be shown, but since /etc/passwd is such an important file, we can check its permissions with `ls -l` and see that it can be writen to.
 
 
-## Task 5
+## Task 5 : Abusing SUID/SGID Files
+
+Checking for files with the `SUID/SGID` bit set is the go-to when first getting a shell on a machine if what we want is to escalata privileges.
+
+If the `SUID` bit is set on a file, it means that the file will be executed with the same permissions as the owner of the file.
+If the `SGID` bit is set on a file, the file will be executed with the permissions of the group that owns the file.
+**Important : SUID and SGID have different behaviour when they are set in directories**
+
+In order to find files with the SUID bit set, we can have a look at our `LinEnum` scan, or we can search them manually :
+
+<img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/find%20suid%20files5.png" class="border" />
+
+```
+find / -perm -u=s -type f 2>/dev/null
+```
+>Again, we are using `find` with its `-perm` option, this time we specify that we want any of the permission bits set (`-u=s`) and we use `-type f` so that it only returns files.
+
+It seems that there is an uncommon file with the SUID bit set : 
+
+* * *
+<p class="answer">Answer : /home/user3/shell</p>
+* * *
+
+Due to `shell` having the SUID set, we can execute it and gain superuser privileges on the machine :
+
+<img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/root5.png" class="border" />
+
+```
+ls -l /home/user3/shell
+./shell
+```
+>To check if a file has the `SUID/SGID` bit set, we look at its permissions.
+>
+>If they are : `rws-rwx-rwx`, the `SUID` bit is set.
+>
+>If they are : `rwx-rws-rwx`, the `SGID` bit is set.
+>
+>**Notice that they are marked with an `s`**
+
 
 <style>
   .border {   
