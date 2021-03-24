@@ -153,7 +153,7 @@ ls -l /home/user3/shell
 >
 >If they are : `rwx-rws-rwx`, the `SGID` bit is set.
 >
-><p class="pink"> Notice that they are marked with the character "s".</p>
+><span class="pink"> Notice that they are marked with the character</span> `s`.
 
 ## Task 6 : Exploiting writeable /etc/passwd
 
