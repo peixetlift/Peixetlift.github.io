@@ -2,7 +2,7 @@
 title: Common Linux PrivEsc detailed write-up | TryHackMe
 published: true
 ---
-Tasks <p><class="highlight">1</class>, <class="highlight">2</class> and <class="highlight">3</class></p> don't need explanation.
+Tasks <p><span class="highlight">1</span>, <span class="highlight">2</span> and <span class="highlight">3</span></p> don't need explanation.
 
 ## Task 4 : Enumeration
 
