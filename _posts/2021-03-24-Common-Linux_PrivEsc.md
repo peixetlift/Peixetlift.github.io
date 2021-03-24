@@ -381,7 +381,7 @@ The last step is to run the `script`, which will be run as root because `ls` is 
 
 ## Thank you for reading my write-up!
 
-I really hope you enjoyed it and learned something ;)
+I really hope you enjoyed it and learnt something ;)
 
 <style>
   .border {   
