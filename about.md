@@ -3,4 +3,5 @@ layout: page
 title: About
 ---
 
-Something about me.
+I'm just a student who likes CyberSec.
+-**@Peixetlift**
