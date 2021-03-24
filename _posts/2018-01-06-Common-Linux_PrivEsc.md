@@ -102,8 +102,11 @@ ls -l /etc/passwd
 ```
 
 >With the `find` command, we can look for files with concrete permissions by using the option `-perm`, to find files with user writing permissions we can look for `-200`, which shows every file which permissions are set to 200 or more.
+>
 >With `2>/dev/null`, we redirect the stderr (Standard Error) to /dev/null, which is kind of a "black hole" that discards all the data that is writen to it.
+>
 >For more info on stderr, visit [this page](https://www.howtogeek.com/435903/what-are-stdin-stdout-and-stderr-on-linux/). For more info on /dev/null, check [here](https://en.wikipedia.org/wiki/Null_device).
+>
 >A lot of files will be shown, but since /etc/passwd is such an important file, we can check its permissions with `ls -l` and see that it can be writen to.
 
 
