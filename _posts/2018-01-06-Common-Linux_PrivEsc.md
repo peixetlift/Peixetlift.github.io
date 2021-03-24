@@ -12,7 +12,7 @@ To get LinEnum on the target's machine, you need to start a server on your local
 <style>
   .border {   
   border-width: 3px;
-  border-color: white;
+  border-color: #7FFF00;
   border-style: solid; } 
 </style>
   
