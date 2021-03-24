@@ -45,6 +45,7 @@ Let's now look at how many "user[x]" are there in the system :
 cat /etc/passwd | grep user*
 ```
 >What we are doing with `cat` is showing in stdout (Standard Output) the contents of the file `/etc/passwd` and piping them into a `grep` command.
+>
 >`grep` allows us to look for patterns in texts, by typing `grep user*` we are searching for any pattern that contains the word "user" and any other character next to it (this is why we use the wildcard *)
 
 **As we can observe, there are 8 user[x] in the system.**
