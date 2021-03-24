@@ -11,9 +11,9 @@ To get LinEnum on the target's machine, you need to start a server on your local
 <img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/python%20listener%20server4.png" class="border" />
 <style>
   .border {   
-  border-width: 3px;
+  border-width: 2px;
   border-color: #7FFF00;
-  border-style: solid; } 
+  border-style: groove; } 
 </style>
   
 ```
