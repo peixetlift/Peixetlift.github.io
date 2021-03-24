@@ -95,7 +95,7 @@ cat linEnum.txt | grep crontab -C 10
 >If you have read the previous tasks, you already know what this is doing, the only novelty is the `-C` option, which specifies how many lines of context you want to display.
 
 * * *
-<p class="answer">Answer : The `autoscript.sh` file is located in the "/home/user4/Desktop" directory</p>
+<p class="answer">Answer : The autoscript.sh file is located in the "/home/user4/Desktop" directory</p>
 * * *
 
 Finally, we want to search for a file that has had its permissions changed, and now users are allowed to write to it :
@@ -155,7 +155,7 @@ ls -l /home/user3/shell
 >
 >**Notice that they are marked with an `s`**
 
-
+## Task 6 : Exploitin Writeable /etc/passwd
 <style>
   .border {   
   border-width: 0px;
