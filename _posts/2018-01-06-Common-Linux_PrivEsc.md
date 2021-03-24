@@ -2,7 +2,7 @@
 title: Common Linux PrivEsc detailed write-up | TryHackMe
 published: true
 ---
-Tasks <p><span class="highlight">1</span>, <span class="highlight">2</span> and <span class="highlight">3</span></p> don't need explanation.
+Tasks <span class="highlight">1</span>, <span class="highlight">2</span> and <span class="highlight">3</span> don't need explanation.
 
 ## Task 4 : Enumeration
 
@@ -157,15 +157,15 @@ ls -l /home/user3/shell
 
 ## Task 6 : Exploiting writeable /etc/passwd
 
-The `/etc/passwd` file stores valuable account information, <p class="highlight">it doesn't contain passwords</p>, it contains a list of the accounts of the system and it provides information about each and every of them, such as user ID, group ID, home directory, etc.
+The `/etc/passwd` file stores valuable account information, <span class="highlight">it doesn't contain passwords</span>, it contains a list of the accounts of the system and it provides information about each and every of them, such as user ID, group ID, home directory, etc.
 This file needs to have read permissions because other utilities require them to properly work, however it must not have write permissions except for the root account.
 When a user can write in the /etc/passwd file, it can lead to a security breach, which is what we are going to exploit right about now :
 
 What direction privilege escalation is the attack?
 
-<p class="highlight">Horizontal privilege escalation</p> Occurs when we take over a user who is on the same privilege level as us.
+<span class="highlight">Horizontal privilege escalation</span> Occurs when we take over a user who is on the same privilege level as us.
 
-<p class="highlight">Vertical privilege escalation</p> Takes place when we want to access an account which privileges are higher than ours.
+<span class="highlight">Vertical privilege escalation</span> takes place when we want to access an account which privileges are higher than ours.
 
 * * *
 <p class="answer"> Answer : Vertical</p>
