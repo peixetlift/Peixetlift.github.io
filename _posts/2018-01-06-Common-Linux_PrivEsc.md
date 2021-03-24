@@ -2,6 +2,9 @@
 title: Common Linux PrivEsc detailed write-up | TryHackMe
 published: true
 ---
+
+[Common Linux Privesc Room](https://tryhackme.com/room/commonlinuxprivesc)
+
 Tasks <span class="pink">1</span>, <span class="pink">2</span> and <span class="pink">3</span> don't need explanation.
 
 ## Task 4 : Enumeration
@@ -315,12 +318,66 @@ nc -lvp 8888
 
 ## Task 9 : Exploiting PATH Variable
 
+The `$PATH` variable is an environmental variable that indicates which directories contain executable programs, this way when you run a program that's in the `$PATH `variable, you don't need to know the path to the program in order to use it.
 
+Imagine this time we have a binary that we can execute with elevated privileges (because it has the `SUID` bit set <span class="pink">;)</span>), however, this binary doesn't provide a way of spawning a shell (like `vi` in task 7).
 
+What we can do is create a binary with the same name than an already existing one, but locate it in a different place (/tmp for example). Afterwards we can modify the `$PATH` variable and tell it that the location of the binary (the original one) is /tmp.
 
+Do you see what we are doing?
 
+Now when we run the program, the system will check the `$PATH` and it will run the one that we created with escalated privileges, instead of the original one.
 
+Checking that `script` has the `SUID` bit set :
 
+<img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/script%20perms9.png" class="border" />
+
+```
+ls -l script
+```
+
+Running the `script` file in user5's home directory :
+
+<img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/executing%20script9.png" class="border" />
+
+```
+./script
+```
+
+>When running the file, we see that it lists the contents of the current directory.
+
+<span class="answer">Answer : ls</span>
+
+Like we said, we will create an imitation of this script and name it `ls`, giving it executable permissions :
+
+<img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/creating%20imitation9.png" class="border" />
+
+```
+cd /tmp
+echo "/bin/bash" > ls
+chmod +x ls
+ls -l
+```
+>All of the commands have been explained in detail through this write-up, but what we have accomplished is to create a script named `ls` that spawns a shell when executed.
+
+We have created the imitation, now we want to add its location to the `$PATH` :
+
+<img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/path9.png" class="border" />
+
+```
+export PATH=/tmp:$PATH
+echo $PATH
+```
+
+>We add `/tmp` and check that we have done it correctly.
+
+The last step is to run the `script`, which will be run as root because `ls` is contained in `$PATH` and `script` executes with superuser privileges.
+
+<img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/root9.png" class="border" />
+
+## Thank you for reading my write-up!
+
+I really hope you enjoyed it and learned something ;)
 
 <style>
   .border {   
