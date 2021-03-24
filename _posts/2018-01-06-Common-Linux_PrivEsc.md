@@ -173,7 +173,51 @@ What direction privilege escalation is the attack?
 
 The way to exploit the vulnerability that we have found (which is that /etc/passwd can be writen to by a non-superuser account) is adding a new line of text to /etc/passwd with the intention of creating a new account in the system, with the password that we decide, and superuser privileges.
 
-**How is the /etc/passwd structured?**
+<span class="pink">How is the /etc/passwd structured?</pink>
+
+Each line of the file refers to a user, and every line contains 7 fields, all of which separated by a colon (`:`).
+You can see the meaning of every field [in here](https://linuxize.com/post/etc-passwd-file/).
+
+Since passwords are stored with their respective hashes and not in plain text, we will need to create a hash for our password :
+
+<img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/hash6.png" class="border" />
+
+```
+openssl passwd -1 -salt new 123
+```
+
+>A hash is a mathematical function that converts some text input into an output of a fixed length, this function can't be reverted (you can obtain a password's hash, but you can't obtain a hash's password).
+>
+>openssl passwd computes the hash of the password that we provide to it.
+>
+>`-salt` is used to provide a salt, which is a peice of data that will be taken into account when computing the hash.
+>
+>Salts are really useful because the same string always generates the same hash, but with different salts, we can obtain different hashes for two identical passwords.
+
+* * *
+<span class="answer">Answer : $1$new$p7ptkEKU1HnaHpRtzNizS1</span>
+* * *
+
+Now that we have our hash computed, we can create a new entry in /etc/passwd and generate a new account with elevated privileges :
+
+<img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/etc%20passwd%20new%20user6.png" class="border" />
+
+```
+echo new:$1$new$p7ptkEKU1HnaHpRtzNizS1:0:0:root:/root:/bin/bash >> /etc/passwd
+```
+
+>As seen earlier, we can redirect a command's output and write it where we please, the `>>` operator concatenates the stdout of the command to the file that we specify.
+>
+><span class="pink">Be careful not to use the</span> `>` <span class="pink">operator, this will rewrite the whole file!</span>
+
+Here we go! We have created a new user with root privileges and now we only need to log in :
+
+<img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/LinuxPrivEsc/gaining%20root6.png" class="border" />
+
+```
+su new
+```
+>`su` stands for "switch user", so what we have done is change our account to the one we created and voilà, we have escalated privileges.
 
 <style>
   .border {   
