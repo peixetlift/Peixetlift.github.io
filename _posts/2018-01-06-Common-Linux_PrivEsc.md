@@ -120,6 +120,5 @@ ls -l /etc/passwd
   border-style: groove;
   box-shadow: 0px 0px 8px #ADFF2F} 
  .answer {
- text-shadow : 0px 0px 4px #ADFF2F
- background-color : #000000}
+ text-shadow : 0px 0px 4px #ADFF2F }
 </style>
