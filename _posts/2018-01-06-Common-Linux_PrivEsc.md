@@ -155,7 +155,7 @@ ls -l /home/user3/shell
 >
 >**Notice that they are marked with an `s`**
 
-## Task 6 : Exploitin Writeable /etc/passwd
+## Task 6 : Exploiting writeable /etc/passwd
 <style>
   .border {   
   border-width: 0px;
