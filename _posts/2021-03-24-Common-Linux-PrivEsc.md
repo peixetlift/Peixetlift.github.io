@@ -54,7 +54,7 @@ cat /etc/passwd | grep user*
 * * *
 <p class="answer">Answer : there are 8 user[x] in the system.</p>
 * * *
-For a beteter understanding of wildcards in Linux, you can visit [this page](https://geek-university.com/linux/wildcard/) 
+For a better understanding of wildcards in Linux, you can visit [this page](https://geek-university.com/linux/wildcard/) 
 
 The next step is to find how many shells there are in the system, to guess so, we need to start enumerating with `LinEnum.sh`.
 You can run the script with :
