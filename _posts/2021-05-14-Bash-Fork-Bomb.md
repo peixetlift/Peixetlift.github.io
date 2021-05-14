@@ -6,12 +6,11 @@ published: true
 Hello everyone! This post will be about a famous bash script the purpose of which is to harm a system by consuming a big amount of its memory.
 
 This script is commonly known as "Fork Bomb" and this is how it works :
-
->-We create a function called `:`<br>
-><br>
->-We write the function's code, which will be calling itself recursively and creating two child processes, which can't be terminated by themselves because they are running in the background<br>
-><br>
->-We call the function to trigger the bomb<br>
+<ul>
+  ><li>We create a function called </li>`:`<br>
+  ><li>We write the function's code, which will be calling itself recursively and creating two child processes, which can't be terminated by themselves because they are running in the background</li>
+  ><li>We call the function to trigger the bomb</li><br>
+</ul>
 
 <span class="green"> Bash code : </span>
 <br>
