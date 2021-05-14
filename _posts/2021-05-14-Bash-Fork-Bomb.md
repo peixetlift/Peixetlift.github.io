@@ -31,7 +31,7 @@ This script is commonly known as "Fork Bomb" and this is how it works :
 <span class="pink">4.-</span> Finally, we use the `;` as a command separator and we run the function with `:`<br>
 
 <span class="pink" style="font-size:35px"><b> DISCLAIMER </b></span><br>
-<br>
+
 Please do not use this command unless you are ready to see your PC crash and reboot it.<br>
 The command doesn't require super-user privileges to run.<br>
 
