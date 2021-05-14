@@ -23,7 +23,7 @@ This script is commonly known as "Fork Bomb" and this is how it works :
 <br>
 ## Detailed explanation
 
-<span class="pink">1.-</span> `:()` creates/defines the function with name `:`<br>
+<span class="pink">1.-</span> `:()` creates the function with name `:`<br>
 <span class="pink">2.-</span> Inside `{}`we write the code, which will be `:|: &` 
 > `:` calls the function, `|` pipes its output into another call to `:`, and we tell it to run in the background with `&`<br>
 
