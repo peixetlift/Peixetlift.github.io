@@ -7,9 +7,9 @@ Hello everyone! This post will be about a famous bash script the purpose of whic
 
 This script is commonly known as "Fork Bomb" and this is how it works :
 
-*We create a function called `:`
-*We write the function's code, which will be calling itself recursively and creating two child processes, which can't be terminated by themselves because they are running in the background
-*We call the function to trigger the bomb
+* We create a function called `:`
+* We write the function's code, which will be calling itself recursively and creating two child processes, which can't be terminated by themselves because they are running in the background
+* We call the function to trigger the bomb
 
 
 <span class="green"> Bash code : </span>
