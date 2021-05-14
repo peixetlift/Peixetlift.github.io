@@ -30,7 +30,7 @@ This script is commonly known as "Fork Bomb" and this is how it works :
 <span class="pink">3.-</span> More specifically, what `&` does is disowning the function, which makes the child processes unable to be auto-killed when the father process is terminated. You can find more information [in here](https://datacadamia.com/lang/bash/process/ampersand)<br>
 <span class="pink">4.-</span> Finally, we use the `;` as a command separator and we run the function with `:`<br>
 
-<span class="pink" size="20px"> DISCLAIMER </span>
+<span class="pink" size="50px"><b> DISCLAIMER </b></span><br>
 Please do not use this command unless you are ready to see your PC crash and reboot it.<br>
 The command doesn't require super-user privileges to run.<br>
 
