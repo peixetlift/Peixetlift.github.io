@@ -1,3 +1,7 @@
+---
+title: Bash Fork Bomb
+published: true
+---
 
 Hello everyone! This post will be about a famous bash script the purpose of which is to harm a system by consuming a big amount of its memory.
 
