@@ -19,6 +19,6 @@ This script is commonly known as "Fork Bomb" and this is how it works :
 <ul>
   <li>`:()` creates/defines the function with name `:`</li>
   <li> Inside `{}`we write the code, which will be `:|: &` --> `:` calls the function, `|` pipes its output into another call to `:`, and we tell it to run in the background with `&`</li>
-  <li> More specifically, what `&` does is disowning the function, which makes the child processes unable to be auto-killed when the father process is terminated. You can find more information (in here)[https://datacadamia.com/lang/bash/process/ampersand]</li>
+  <li> More specifically, what `&` does is disowning the function, which makes the child processes unable to be auto-killed when the father process is terminated. You can find more information [in here](https://datacadamia.com/lang/bash/process/ampersand)</li>
   <li> Finally, we use the `;` as a command separator and we run the function with ':'</li>
 </ul>
