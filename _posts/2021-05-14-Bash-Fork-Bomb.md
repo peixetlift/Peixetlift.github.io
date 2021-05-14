@@ -14,6 +14,7 @@ This script is commonly known as "Fork Bomb" and this is how it works :
 >-We call the function to trigger the bomb<br>
 
 <span class="green"> Bash code : </span>
+<br>
 ***
 ```
 :(){ :|: & };:
