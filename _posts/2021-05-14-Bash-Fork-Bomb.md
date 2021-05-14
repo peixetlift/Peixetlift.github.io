@@ -7,7 +7,7 @@ Hello everyone! This post will be about a famous bash script the purpose of whic
 
 This script is commonly known as "Fork Bomb" and this is how it works :
 
->We create a function called `:`
+>We create a function called `:`<br>
 >We write the function's code, which will be calling itself recursively and creating two child processes, which can't be terminated by themselves because they are running in the background<br>
 >We call the function to trigger the bomb<br>
 
@@ -19,9 +19,8 @@ This script is commonly known as "Fork Bomb" and this is how it works :
 
 ### Detailed explanation
 
-
-`:()` creates/defines the function with name `:`</li>
-Inside `{}`we write the code, which will be `:|: &` --> `:` calls the function, `|` pipes its output into another call to `:`, and we tell it to run in the background with `&`
-More specifically, what `&` does is disowning the function, which makes the child processes unable to be auto-killed when the father process is terminated. You can find more information [in here](https://datacadamia.com/lang/bash/process/ampersand)
-Finally, we use the `;` as a command separator and we run the function with `:`
+1.- `:()` creates/defines the function with name `:`<br>
+2.- Inside `{}`we write the code, which will be `:|: &` --> `:` calls the function, `|` pipes its output into another call to `:`, and we tell it to run in the background with `&`<br>
+3.-More specifically, what `&` does is disowning the function, which makes the child processes unable to be auto-killed when the father process is terminated. You can find more information [in here](https://datacadamia.com/lang/bash/process/ampersand)<br>
+4.-Finally, we use the `;` as a command separator and we run the function with `:`<br>
 
