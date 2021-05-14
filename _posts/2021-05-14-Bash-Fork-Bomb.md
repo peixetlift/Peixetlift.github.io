@@ -32,7 +32,7 @@ This script is commonly known as "Fork Bomb" and this is how it works :
   border-color: #7FFF00;
   border-style: groove;
   box-shadow: 0px 0px 8px #ADFF2F} 
- .answer {
+ .green {
  text-shadow : 0px 0px 4px #ADFF2F }
  .pink {
  text-shadow : 0px 0px 4px #ff6699 }
