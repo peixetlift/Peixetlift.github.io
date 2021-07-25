@@ -14,7 +14,7 @@ I'll be using two separate files for this :
 * parse.pl
 
 >The `.bat` extension is used for batch files, which are, in short, "shell scripts for the windows cmd". [This excellent page](https://www.robvanderwoude.com/)  will teach you everything you want to know and much more (for real, those people are crazy).<br>
->The `.pl` extension is the one used for <span class="green">Perl</span> scripts. If you are interested in learning the language, you can visit [this site](https://www.perltutorial.org/).<br>
+>The `.pl` extension is the one used for<span class="green"> Perl </span>scripts. If you are interested in learning the language, you can visit [this site](https://www.perltutorial.org/).<br>
 
 ## <span class="pink">rainbow.bat</span>
 * * *
