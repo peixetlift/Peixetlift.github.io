@@ -33,7 +33,7 @@ mode con >> ModeTemp.txt
 
 Once obtained, the number of columns has to be assigned to a variable so that it can be used later on. This seems trivial, but it is definetly not when the scripting language is batch.
 
-To accomplish this variable assignment, it is required to loop through the parser's output, which will be stdout. When the loop is finished, the variable `cols` will be set to the last line that it read.
+To accomplish this variable assignment, it is required to loop through the parser's output, which will be in `stdout`. When the loop is finished, the variable `cols` will be set to the last line that was read.
 
 * * *
 ```bat
@@ -49,7 +49,7 @@ Some pretty detailed information about how this `for /f` works can be found [her
 
 Here is where the real magic happens. I'll have to break this down into different sections once again so that it can be well understood :
 
-The first thing I'm doing after obtaining the columns is checking if the number is odd or even.
+The first thing I'm doing after obtaining the columns is checking if the number is odd or even. This step will let me add a "speed feature" by echoing either one or two "coloured spaces" on each loop iteration.
 * * *
 ```bat
 set /A mod=%cols% %% 2
@@ -60,7 +60,6 @@ When loop ends :
 if %mod%==1 echo [%a%m [0m
 ```
 * * *
->This step will let me add a "speed feature" by echoing either one or two "coloured blank spaces" on each loop iteration.<br>
 >In case the number is even, no changes are required because by echoing 2 characters at a time, we'll reach the end of the line.<br>
 >However, if it is an odd number and no modifications are made, the whole line + 1 character will be echoed when `speed=2`, thus colouring the next line.<br>
 >The required change in this last case is pretty simple, when the number of columns is odd, substract 1 to it and echo outside of the loop.<br>
@@ -69,7 +68,7 @@ Let's now get to this famous loop:
 
 To be able to make a determined amount of iterations in batch, one option is to loop through a range with `for /L`. Once again, for more info look at [this website](https://ss64.com/nt/for_l.html).
 
-Depending on the "speed" (that we obtain through stdin), each iteration will either echo 1 character `cols` number of times, or 2 characters `cols`/2 number of times.
+Depending on the "speed" (that we obtain through `stdin`), each iteration will either echo 1 character `cols` number of times, or 2 characters `cols`/2 number of times.
 
 There is one more thing to be understood before looking at the code : <span class="pink">how do you use colours?</span> `cmd` can display colours thanks to <span class="green">ANSI sequences</span>, which you can learn more about [checking out this page](https://www.robvanderwoude.com/ansi.php).
 
@@ -143,7 +142,7 @@ close(FH);
 
 Firstly, the program is told which interpreter to use, in this case `perl`.
 
-Probably [perltutorial](https://www.perltutorial.org/perl-open-file/) will explain the I/0 file part better than me, so I strongly advice to read the linked page. It is only 5 minutes, you can do that instead of going to the kitchen for some cookies (actually the optimal is to do both).
+Probably [perltutorial](https://www.perltutorial.org/perl-open-file/) will explain the I/0 file part better than me, so I strongly advice to read the linked page. It is only 5 minutes, you can do that instead of going to the kitchen for some cookies (actually, the optimal is to do both).
 
 In order to understand the regexp (regular expressions) that I have used, it is first a good choice to look at the output of the `mode con` command, since that is what the script is parsing :
 
@@ -159,11 +158,11 @@ print $1 if $_ =~ /Columns:\s*(\d\d*)/;
 In this piece of code, I'm telling the program to print the line it is reading only if it matches the pattern `/Columns:\s*(\d\d*)/`, which can be explained by looking at each part :
 * `Columns:` is simply the exact string that will match
 * `\s*` means 0 or more occurrences of a blank space, tab, etc. (`\s` is the character and `*` is for saying "0 or more times the preceding expression")
-* \d\d* means one digit, and then zero or more digts after that.
+* `\d\d*` means one digit, and then zero or more digts after that.
 
-Obviously, the only line that matches this whole pattern is the Columns line, and therefore we are capable of obtaining the number through the `$1` variable, which stores the part inside the `()` of the pattern.
+Obviously, the only line that matches this whole pattern is the Columns line, and therefore we are capable of obtaining the number through the `$1` variable, which stores the part inside the `()` of the pattern. [More on Perl extracting matches from regex](https://www.perltutorial.org/regular-expression-extracting-matches/).
 
-If you want to try this little script out, you can have a look at my github repo. Thanks for reading! :)
+If you want to try this little script out, you can have a look at my github repo. Thanks for reading me! :)
 <style>
   .border {   
   border-width: 0px;
