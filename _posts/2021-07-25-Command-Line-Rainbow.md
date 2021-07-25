@@ -3,7 +3,7 @@ title: Command Line Rainbow
 published: true
 ---
 
-Hi again! In this post I'll explain some code that I've developed to mess with the cmd colours on windows.
+Hi again! In this post I'll explain some code that I've developed to mess with the `cmd` colours on windows.
 
 <img src="https://user-images.githubusercontent.com/74323383/126896875-0ae9ac47-6c8d-45e7-a427-db4c3e22cc03.png" class="border" />
 
