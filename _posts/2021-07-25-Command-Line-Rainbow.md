@@ -51,10 +51,45 @@ Let's brake down this script in two parts : obtaining the number of columns that
 
 To check the number of columns that the window is using, the command `mode` will be very useful. The documentation of the command is [here](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/mode).
 
-With `mode con` we can output some info about the size of the window. I'ts been very useful to me to redirect this info into a separate file in order to parse it afterwards with `parse.pl`, but I'll get into the parser later. For now, let's just assume that we can obtain the number of columns with the other script.
+With `mode con` we can output some info about the size of the window. It's been very useful to me to redirect this info into a temporary separate file `ModeTemp.txt` (it will be deleted when the process ends) in order to parse it afterwards with `parse.pl`, but I'll get into the parser later. For now, let's just assume that we can obtain the number of columns with the other script.
+* * *
+```bat
+mode con >> ModeTemp.txt
+```
+* * *
 
-Once obtained the number of columns, it has to be assigned to a variable so that it can be used later on. This seems trivial, but it is definetly not when the scripting language is batch.
+Once obtained, the number of columns has to be assigned to a variable so that it can be used later on. This seems trivial, but it is definetly not when the scripting language is batch.
 
+To accomplish this variable assignment, it is required to loop through the parser's output, which will be stdout. When the loop is finished, the variable `cols` will be set to the last line that it read.
+
+* * *
+```bat
+for /f "tokens=*" %%a in ('perl parse.pl') do (
+    set cols=%%a
+)
+```
+* * *
+
+Some pretty detailed information about how this `for /f` works can be found [here](https://ss64.com/nt/for_f.html).
+
+### Displaying the rainbow
+
+Here is where the real magic happens. I'll have to break this down into different sections once again so that it can be well understood :
+
+The first thing I'm doing after obtaining the columns is checking if the number is odd or even.
+* * *
+```bat
+set /A mod=%cols% %% 2
+if %mod%==1 set /A cols-=1
+```
+```bat
+if %mod%==1 echo [%a%m [0m
+```
+* * *
+>This step will let me add a "speed feature" by echoing either one or two "coloured blank spaces" on each loop iteration.
+>In case the number is even, no changes are required because by echoing 2 characters at a time, we'll reach the end of the line.
+>However, if it is an odd number and no modifications are made, the whole line + 1 character will be echoed when `speed=2`, thus colouring the next line.
+>The required change in this last case is pretty simple, when the number of columns is odd, substract 1 to it and echo outside of the loop.
 
 
 <style>
@@ -68,4 +103,3 @@ Once obtained the number of columns, it has to be assigned to a variable so that
  .pink {
  text-shadow : 0px 0px 4px #ff6699 }
 </style>
-
