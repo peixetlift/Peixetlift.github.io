@@ -147,7 +147,7 @@ Probably [perltutorial](https://www.perltutorial.org/perl-open-file/) will expla
 
 In order to understand the regexp (regular expressions) that I have used, it is first a good choice to look at the output of the `mode con` command, since that is what the script is parsing :
 
-<img src="![imagen](https://user-images.githubusercontent.com/74323383/126901182-a5675683-bdbe-4d3b-ac0c-714d41391bd3.png)" class="border" />
+<img src="(![imagen](https://user-images.githubusercontent.com/74323383/126901509-1c75d305-280c-4845-a02f-f240a259e12a.png)" class="border" />
 
 The interesting line is the one with "Columns : x", so that is what the parser will get :
 
