@@ -155,7 +155,7 @@ The interesting line is the one with "Columns : x", so that is what the parser w
 print $1 if $_ =~ /Columns:\s*(\d\d*)/;
 ```
 * * *
-In this piece of code, I'm telling the program to print the line it is reading only if it matches the pattern `/Columns:\s*(\d\d*)/`, which can be explained by looking at each part :
+In this piece of code, I'm telling the program to print the extracted pattern only if the line it is reading matches the full pattern `/Columns:\s*(\d\d*)/`, which can be explained by looking at each part :
 * `Columns:` is simply the exact string that will match
 * `\s*` means 0 or more occurrences of a blank space, tab, etc. (`\s` is the character and `*` is for saying "0 or more times the preceding expression")
 * `\d\d*` means one digit, and then zero or more digts after that.
