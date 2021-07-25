@@ -10,11 +10,11 @@ Hi again! In this post I'll explain some code that I've developed to mess with t
 The funciton of the script is mainly to draw kind of a rainbow, and it adapts to every window size.
 I'll be using two separate files for this :
 
-* rainbow.bat
-* parse.pl
+* <span class="green">rainbow.bat</span>
+* <span class="green">parse.pl</span>
 
 >The `.bat` extension is used for batch files, which are, in short, "shell scripts for the windows cmd". [This excellent page](https://www.robvanderwoude.com/)  will teach you everything you want to know and much more (for real, those people are crazy).<br>
->The `.pl` extension is the one used for<span class="green"> Perl </span>scripts. If you are interested in learning the language, you can visit [this site](https://www.perltutorial.org/).<br>
+>The `.pl` extension is the one used for Perl scripts. If you are interested in learning the language, you can visit [this site](https://www.perltutorial.org/).<br>
 
 ## <span class="pink">rainbow.bat</span>
 * * *
