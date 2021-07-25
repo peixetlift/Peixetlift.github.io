@@ -1,4 +1,4 @@
----
+
 title: Command Line Rainbow
 published: true
 ---
@@ -17,34 +17,7 @@ I'll be using two separate files for this :
 >The `.pl` extension is the one used for Perl scripts. If you are interested in learning the language, you can visit [this site](https://www.perltutorial.org/).<br>
 
 ## <span class="pink">rainbow.bat</span>
-* * *
-```bat
-@echo off
-set /A a=41
 
-mode con >> ModeTemp.txt
-
-set /p speed="Select speed : [1/2]"
-for /f "tokens=*" %%a in ('perl parse.pl') do (
-    set cols=%%a
-)
-
-set /A mod=%cols% %% 2
-if %mod%==1 set /A cols-=1
-
-del ModeTemp.txt
-
-:colorLoop
-for /L %%n in (1 %speed% %cols%) do (
-	if %speed%==1 echo | set /p="[%a%m [0m"
-	if %speed%==2 echo | set /p="[%a%m  [0m"
-)
-if %mod%==1 echo [%a%m [0m
-set /A a+=1
-if %a%==47 set /A a=41
-goto :colorLoop
-```
-* * *
 Let's brake down this script in two parts : obtaining the number of columns that the window has (A.K.A. how many characters fit in one line) and displaying the rainbow.
 
 ### Number of columns
@@ -82,15 +55,71 @@ The first thing I'm doing after obtaining the columns is checking if the number 
 set /A mod=%cols% %% 2
 if %mod%==1 set /A cols-=1
 ```
+When loop ends :
 ```bat
 if %mod%==1 echo [%a%m [0m
 ```
 * * *
->This step will let me add a "speed feature" by echoing either one or two "coloured blank spaces" on each loop iteration.
->In case the number is even, no changes are required because by echoing 2 characters at a time, we'll reach the end of the line.
->However, if it is an odd number and no modifications are made, the whole line + 1 character will be echoed when `speed=2`, thus colouring the next line.
->The required change in this last case is pretty simple, when the number of columns is odd, substract 1 to it and echo outside of the loop.
+>This step will let me add a "speed feature" by echoing either one or two "coloured blank spaces" on each loop iteration.<br>
+>In case the number is even, no changes are required because by echoing 2 characters at a time, we'll reach the end of the line.<br>
+>However, if it is an odd number and no modifications are made, the whole line + 1 character will be echoed when `speed=2`, thus colouring the next line.<br>
+>The required change in this last case is pretty simple, when the number of columns is odd, substract 1 to it and echo outside of the loop.<br>
 
+Let's now get to this famous loop:
+
+To be able to make a determined amount of iterations in batch, one option is to loop through a range with `for /L`. Once again, for more info look at [this website](https://ss64.com/nt/for_l.html).
+
+Depending on the "speed" (that we obtain through stdin), each iteration will either echo 1 character `cols` number of times, or 2 characters `cols`/2 number of times.
+
+There is one more thing to be understood before looking at the code : <span class="pink">how do you use colours?</span> `cmd` can display colours thanks to <span class="green">ANSI sequences</span>, which you can learn more about [checking out this page](https://www.robvanderwoude.com/ansi.php).
+
+* * *
+```bat
+for /L %%n in (1 %speed% %cols%) do (
+  if %speed%==1 echo | set /p="[%a%m [0m"
+  if %speed%==2 echo | set /p="[%a%m  [0m"
+)
+set /A a+=1
+if %a%==47 set /A a=41
+```
+* * *
+>The variable `a` you can see is used to modify the colour, once an entire line is printed in `<ESC>[%a%m`, `a` is incremented and the loop starts back again, now with the colour `a + 1`.
+
+You may be asking yourself where is this loop re-started with a different color, and you're right, let's get to that :
+
+In batch file there exist these things called `labels`, which you can think of as kind of a checkpoint, you can use `go to <label>` and the program will execute the code that is under that `label`.
+The name of the only label I use in the script is `colorLoop`, and it is what lets us go back to the beginning of the loop with a different value of `a` every time.
+
+Here you can see the full code of <span class="pink">rainbow.bat</span> :
+* * *
+```bat
+@echo off
+set /A a=41
+
+mode con >> ModeTemp.txt
+
+set /p speed="Select speed : [1/2]"
+for /f "tokens=*" %%a in ('perl parse.pl') do (
+    set cols=%%a
+)
+
+set /A mod=%cols% %% 2
+if %mod%==1 set /A cols-=1
+
+del ModeTemp.txt
+
+:colorLoop
+for /L %%n in (1 %speed% %cols%) do (
+  if %speed%==1 echo | set /p="[%a%m [0m"
+  if %speed%==2 echo | set /p="[%a%m  [0m"
+)
+if %mod%==1 echo [%a%m [0m
+set /A a+=1
+if %a%==47 set /A a=41
+goto :colorLoop
+```
+* * *
+>In case you're wondering, `@echo off` is used to turn off echo, this way the commands won't be displayed through the terminal
 
 <style>
   .border {   
@@ -103,3 +132,4 @@ if %mod%==1 echo [%a%m [0m
  .pink {
  text-shadow : 0px 0px 4px #ff6699 }
 </style>
+
