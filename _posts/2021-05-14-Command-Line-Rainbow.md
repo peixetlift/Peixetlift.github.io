@@ -18,7 +18,7 @@ I'll be using two separate files for this :
 
 ## <span class="pink">rainbow.bat</span>
 * * *
-```
+```bat
 @echo off
 set /A a=41
 
