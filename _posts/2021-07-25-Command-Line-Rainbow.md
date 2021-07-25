@@ -1,4 +1,4 @@
-
+---
 title: Command Line Rainbow
 published: true
 ---
@@ -121,6 +121,49 @@ goto :colorLoop
 * * *
 >In case you're wondering, `@echo off` is used to turn off echo, this way the commands won't be displayed through the terminal
 
+## <span class="pink">parse.pl</span>
+
+As promised, it is now time to review the parser. First of all, I have created it in Perl because it provides a great support for regular expressions, but it could have been done in other languages.
+This time, I'll show the full code and then I'll try my best to explain it :
+
+* * *
+```bat
+#!/usr/bin/perl
+
+use warnings;
+
+open(FH, '<', 'ModeTemp.txt') or die $!;
+
+while(<FH>){
+   print $1 if $_ =~ /Columns:\s*(\d\d*)/;
+}
+close(FH);
+```
+* * *
+
+Firstly, the program is told which interpreter to use, in this case `perl`.
+
+Probably [perltutorial](https://www.perltutorial.org/perl-open-file/) will explain the I/0 file part better than me, so I strongly advice to read the linked page. It is only 5 minutes, you can do that instead of going to the kitchen for some cookies (actually the optimal is to do both).
+
+In order to understand the regexp (regular expressions) that I have used, it is first a good choice to look at the output of the `mode con` command, since that is what the script is parsing :
+
+<img src="![imagen](https://user-images.githubusercontent.com/74323383/126901182-a5675683-bdbe-4d3b-ac0c-714d41391bd3.png)" class="border" />
+
+The interesting line is the one with "Columns : x", so that is what the parser will get :
+
+* * *
+```bat
+print $1 if $_ =~ /Columns:\s*(\d\d*)/;
+```
+* * *
+In this piece of code, I'm telling the program to print the line it is reading only if it matches the pattern `/Columns:\s*(\d\d*)/`, which can be explained by looking at each part :
+* `Columns:` is simply the exact string that will match
+* `\s*` means 0 or more occurrences of a blank space, tab, etc. (`\s` is the character and `*` is for saying "0 or more times the preceding expression")
+* \d\d* means one digit, and then zero or more digts after that.
+
+Obviously, the only line that matches this whole pattern is the Columns line, and therefore we are capable of obtaining the number through the `$1` variable, which stores the part inside the `()` of the pattern.
+
+If you want to try this little script out, you can have a look at my github repo. Thanks for reading! :)
 <style>
   .border {   
   border-width: 0px;
@@ -132,4 +175,3 @@ goto :colorLoop
  .pink {
  text-shadow : 0px 0px 4px #ff6699 }
 </style>
-
