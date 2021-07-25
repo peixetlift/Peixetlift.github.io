@@ -49,6 +49,13 @@ Let's brake down this script in two parts : obtaining the number of columns that
 
 ### Number of columns
 
+To check the number of columns that the window is using, the command `mode` will be very useful. The documentation of the command is [here](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/mode).
+
+With `mode con` we can output some info about the size of the window. I'ts been very useful to me to redirect this info into a separate file in order to parse it afterwards with `parse.pl`, but I'll get into the parser later. For now, let's just assume that we can obtain the number of columns with the other script.
+
+Once obtained the number of columns, it has to be assigned to a variable so that it can be used later on. This seems trivial, but it is definetly not when the scripting language is batch.
+
+
 
 <style>
   .border {   
