@@ -5,16 +5,18 @@ published: true
 
 Hi again! In this post I'll explain some code that I've developed to mess with the cmd colours on windows.
 
+<img src="https://user-images.githubusercontent.com/74323383/126896875-0ae9ac47-6c8d-45e7-a427-db4c3e22cc03.png" class="border" />
+
 The funciton of the script is mainly to draw kind of a rainbow, and it adapts to every window size.
 I'll be using two separate files for this :
 
 * rainbow.bat
 * parse.pl
 
->The `.bat` extension is used for batch files, which are, in short, "shell scripts for the windows cmd". [This excellent page](https://www.robvanderwoude.com/)  will teach you everything you want to know and much more (for real, those people are crazy).
->The `.pl` extension is the one used for <span class="green">Perl</span> scripts. If you are interested in learning the language, you can visit [this site](https://www.perltutorial.org/).
+>The `.bat` extension is used for batch files, which are, in short, "shell scripts for the windows cmd". [This excellent page](https://www.robvanderwoude.com/)  will teach you everything you want to know and much more (for real, those people are crazy).<br>
+>The `.pl` extension is the one used for <span class="green">Perl</span> scripts. If you are interested in learning the language, you can visit [this site](https://www.perltutorial.org/).<br>
 
-<span class="pink">rainbow.bat</span>
+## <span class="pink">rainbow.bat</span>
 * * *
 ```
 @echo off
@@ -44,6 +46,8 @@ goto :colorLoop
 ```
 * * *
 Let's brake down this script in two parts : obtaining the number of columns that the window has (A.K.A. how many characters fit in one line) and displaying the rainbow.
+
+### Number of columns
 
 
 <style>
