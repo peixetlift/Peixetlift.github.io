@@ -163,7 +163,7 @@ This has been all for today, thank you guys for reading me and see you next time
   margin-left: auto;
   margin-right: auto;
   display: block;
-  margin: 0 auto } 
+  margin: 0 auto; } 
  .green {
  text-shadow : 0px 0px 4px #ADFF2F }
  .pink {
