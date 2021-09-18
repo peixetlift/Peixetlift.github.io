@@ -147,7 +147,7 @@ If you have arrived at this point, I can assume that you are concerned about you
 
 ### MFA (Multi-Factor Authentication)
 
-All of this post has been about passwords vulneraiblity to being cracked, but what I haven't talked about is that <b>passwords can be stolen</b>. There are several ways to do this via malware (keyloggers, camfecting, etc.) or with social engineering (tricking you into telling someone your password).
+All of this post has been about passwords' vulnerability to being cracked, but what I haven't talked about is that <b>passwords can be stolen</b>. There are several ways to do this via malware (keyloggers, camfecting, etc.) or with social engineering (tricking you into telling someone your password).
 
 The good news is that MFA solves this problem. MFA will ask you to provide more than one piece of information to access whatever you're trying to access. It will usually ask for some code sent to your phone, a fingerprint, or some other way of identifying you, which will completely deny access to someone who has stolen your password.
 It can be annoying sometimes, but it is definetly worth it to use, specially if you have some important data that you want to keep safe.
