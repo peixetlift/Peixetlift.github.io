@@ -9,7 +9,7 @@ In this post I'll cover what are the best practices to make when choosing a pass
 
 First of all, I'll address how to deal with passwords for the average user, and afterwards I'll get into some detail of which attacks can be performed, the math involving password strength, and some extra tips to make your account security more robust.
 
-## Dealing with passwords
+## 1 - Dealing with passwords
 
 Let's get onto it, the three factors that affect the strength of your password are the following :
 
@@ -31,7 +31,7 @@ To get more into detail, you can keep reading and discover which kind of attacks
 
 Some extra thing that you should take into consideration when choosing your password is the <span class="pink">convenience</span> of remembering and typing it. So for example, `QrN}x#hCyBQ7t2)>` is a great password in terms of robustness, but it is really hard for humans to remember random character strings, and a pain to type every time you want to access something.
 
-## Password Managers
+### Password Managers
 
 With all of this said, I'd like to introduce you to password managers, which consist of software that creates and stores an <b>encrypted database</b> of your different passwords. A password manager will keep all of your passwords safe and you will only need to remember the master password to access the database. This is increcibly helpful since it opens the possibility to have randomly generated passwords for all of your accounts, such as `chm(6PM@d+dHHT%q`. This way, you only need to follow the <span class="pink">convenience</span> guideline when selecting your master password, and use a website such as [passwordsgenerator.net](https://passwordsgenerator.net/) to generate all of your other passwords (you won't need to remeber them since they are stored permanently and securely).
 
@@ -39,7 +39,7 @@ With all of this said, I'd like to introduce you to password managers, which con
 
 As a last tip for the average user : <b>NEVER RE-USE PASSWORDS.</b> For real, do not ever use the same password for more than one site, each site handles its security differently, and if you use the same password for a dubious website that can have a security breach and for your Amazon account, well, you don't need me to tell you what will happen.
 
-## Types of attacks
+## 2 - Types of attacks
 
 To know how passwords can be cracked, first you need to learn how they are stored. The most common way (and the most secure one) passwords are stored inside a company's database is with a `hash` of the password.
 A `hashing function` or algorithm is a mathematical function that is easy to calculate in one way, but nearly impossible to undo, it converts a random input into a fixed-length output.
@@ -85,7 +85,7 @@ These kind of attacks are a variant of the brute force ones, they also consist o
 
 Once again, millions of combinations can be tried in seconds, so it's not about trying to get fancy with passwords such as "adam12354" instead of "adam12345" (which by the way is a terrible password since it doesn't meet the length, character set or predictability requirements).
 
-## Math
+## 3 - Math
 
 This will probably be the most intense section of the post, by reading this you'll learn to compare the strength of different passwords and the number of combinations that an attacker has to try in order to crack your password.
 
@@ -141,7 +141,7 @@ I'm sorry to tell you that this question doesn't have an easy answer, since this
 
 So, we cannot estimate how much time it would take an attacker to crack a password without knowing his equipment, but what we can do is make our password as secure as possible.
 
-## Extra tips
+## 4 - Extra tips
 
 If you have arrived at this point, I can assume that you are concerned about your online privacy and security, and I will give you one more tip to enhance the safety of your accounts : use <b>multi-factor authentication</b> whenever it is possible.
 
