@@ -22,12 +22,10 @@ Let's get onto it, the three factors that affect the strength of your password a
 To get more into detail, you can keep reading and discover which kind of attacks can affect you and what the math behind password security is, but if you only want to have secure passwords and skip all of the geeky information, these are the guidelines to follow :
 
 * * *
-<br>
 * Password must be <span class="green">more than 15 characters long.</span><br>
 * It needs to include some <span class="green">number, symbol and capital letter.</span><br>
 * It <span class="green">must not be related to you</span> (e.g. your favourite team, your birthday, etc.) and it can't be composed of common words such as "password" or "hello".<br>
 * It isn't a good idea either to substitute letters for numbers as in "h3ll0w0rld", this will be the first an attacker will come up with when performing a dictionary attack (which you can learn about down below).
-<br>
 * * *
 
 Some extra thing that you should take into consideration when choosing your password is the <span class="pink">convenience</span> of remembering and typing it. So for example, `QrN}x#hCyBQ7t2)>` is a great password in terms of robustness, but it is really hard for humans to remember random character strings, and a pain to type every time you want to access something.
