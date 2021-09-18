@@ -118,17 +118,19 @@ This clearly shows that the more entropy, the more secure our password will be.
 
 Let's look at the strength of some examples with length of `l = 13` characters and different character sets : 
 
-<ol>
-  <li>Using only numbers : `c = 10`</li>
+
+Using only numbers : `c = 10`
     Entropy = `37.00`
     Attacker needs to try `6.87E+10` combinations
-  <li>Using only letters : `c = 26`</li>
+    
+Using only letters : `c = 26`
     Entropy = `96.21`
     Attacker needs to try `4.58E+28` combinations
-  <li>Using all keyboard characters : `c = 94`</li>
+    
+Using all keyboard characters : `c = 94`
     Entropy = `347.84`
     Attacker needs to try `2.57E+104` combinations
-</ol>
+
 
 As you can see, including symbols, capital letters and numbers drastically increases the number of attempts that the attacker needs to do, this is why it is so important to follow the guidelines stated at the beginning of the post.
 
