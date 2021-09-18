@@ -30,11 +30,11 @@ It isn't a good idea either to substitute letters for numbers as in "h3ll0w0rld"
 <br>
 * * *
 
-Some extra thing that you should take into consideration when choosing your password is the <span class="pink">convenience</span> of remembering and typing it. So for example, ´QrN}x#hCyBQ7t2)>´ is a great password in terms of robustness, but it is really hard for humans to remember random character strings, and a pain to type every time you want to access something.
+Some extra thing that you should take into consideration when choosing your password is the <span class="pink">convenience</span> of remembering and typing it. So for example, `QrN}x#hCyBQ7t2)>` is a great password in terms of robustness, but it is really hard for humans to remember random character strings, and a pain to type every time you want to access something.
 
 ## Password Managers
 
-With all of this said, I'd like to introduce you to password managers, which consist of software that creates and stores an <span class="green">encrypted database</span> of your different passwords. A password manager will keep all of your passwords safe and you will only need to remember the master password to access the database. This is increcibly helpful since it opens the possibility to have randomly generated passwords for all of your accounts, such as ´chm(6PM@d+dHHT%q´. This way, you only need to follow the <span class="pink">convenience</span> guideline when selecting your master password, and use a website such as [passwordsgenerator.net](https://passwordsgenerator.net/) to generate all of your other passwords (you won't need to remeber them since they are stored permanently and securely).
+With all of this said, I'd like to introduce you to password managers, which consist of software that creates and stores an <span class="green">encrypted database</span> of your different passwords. A password manager will keep all of your passwords safe and you will only need to remember the master password to access the database. This is increcibly helpful since it opens the possibility to have randomly generated passwords for all of your accounts, such as `chm(6PM@d+dHHT%q`. This way, you only need to follow the <span class="pink">convenience</span> guideline when selecting your master password, and use a website such as [passwordsgenerator.net](https://passwordsgenerator.net/) to generate all of your other passwords (you won't need to remeber them since they are stored permanently and securely).
 
 <img src="https://s3.amazonaws.com/neowin/news/images/uploaded/2017/06/1497027603_keepass_screenshot_2017.jpg" class="border" />
 
@@ -42,8 +42,8 @@ As a last tip for the average user : <span class="green">NEVER RE-USE PASSWORDS.
 
 ## Types of attacks
 
-To know how passwords can be cracked, first you need to learn how they are stored. The most common way (and the most secure one) passwords are stored inside a company's database is with a ´hash´ of the password.
-A ´hashing function´ or algorithm is a mathematical function that is easy to calculate in one way, but nearly impossible to undo, it converts a random input into a fixed-length output.
+To know how passwords can be cracked, first you need to learn how they are stored. The most common way (and the most secure one) passwords are stored inside a company's database is with a `hash` of the password.
+A `hashing function` or algorithm is a mathematical function that is easy to calculate in one way, but nearly impossible to undo, it converts a random input into a fixed-length output.
 
 <img src="https://simpleaswater.com/content/images/2020/01/hashing.7ae85ed9-1.png" class="border" />
 
@@ -98,9 +98,9 @@ Entropy is calculated through the formula :
 
 <img src="https://www.researchgate.net/profile/Jodi-Kearns/publication/34995295/figure/fig16/AS:669479310729234@1536627714604/Shannons-original-Entropy-equation.png" class="border" />
 
-Thus a standard's coin entropy is´ H = 1/2´ because ´p = 1/2´ and ´(1 - p) = 1/2´ (being ´p´ the probability of heads and ´(1 - p)´ the one of tails), while a biased coin entropy will be something between 0 and 0'5, depending on ´p´.
+Thus a standard's coin entropy is` H = 1/2` because `p = 1/2` and `(1 - p) = 1/2` (being `p` the probability of heads and `(1 - p)` the one of tails), while a biased coin entropy will be something between 0 and 0'5, depending on `p`.
 
-To calculate the entropy of a password, we can take the number of characters in the selected character set and call this ´c´, and the length of the password, and call it ´l´.
+To calculate the entropy of a password, we can take the number of characters in the selected character set and call this `c`, and the length of the password, and call it `l`.
 Then the entropy would be :
 
 <img src="https://github.com/peixetlift/peixetlift.github.io/blob/master/assets/passwordentropy.png?raw=true" class="border" />
@@ -116,18 +116,18 @@ This clearly shows that the more entropy, the more secure our password will be.
 
 <span class="green">XKCD</span> does an incredible job summarizing this topic [in here.](https://xkcd.com/936/)
 
-Let's look at the strength of some examples with length of ´l = 13´ characters and different character sets : 
+Let's look at the strength of some examples with length of `l = 13` characters and different character sets : 
 
 <ol>
-  <li>Using only numbers : ´c = 10´</li>
-    Entropy = ´37.00´
-    Attacker needs to try ´6.87E+10´ combinations
-  <li>Using only letters : ´c = 26´</li>
-    Entropy = ´96.21´
-    Attacker needs to try ´4.58E+28´ combinations
-  <li>Using all keyboard characters : ´c = 94´</li>
-    Entropy = ´347.84´
-    Attacker needs to try ´2.57E+104´ combinations
+  <li>Using only numbers : `c = 10`</li>
+    Entropy = `37.00`
+    Attacker needs to try `6.87E+10` combinations
+  <li>Using only letters : `c = 26`</li>
+    Entropy = `96.21`
+    Attacker needs to try `4.58E+28` combinations
+  <li>Using all keyboard characters : `c = 94`</li>
+    Entropy = `347.84`
+    Attacker needs to try `2.57E+104` combinations
 </ol>
 
 As you can see, including symbols, capital letters and numbers drastically increases the number of attempts that the attacker needs to do, this is why it is so important to follow the guidelines stated at the beginning of the post.
@@ -158,8 +158,11 @@ This has been all for today, thank you guys for reading me and see you next time
   border-width: 0px;
   border-color: #7FFF00;
   border-style: groove;
-  width: 50%; 
-  box-shadow: 0px 0px 8px #ADFF2F } 
+  box-shadow: 0px 0px 8px #ADFF2F;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 50% } 
  .green {
  text-shadow : 0px 0px 4px #ADFF2F }
  .pink {
