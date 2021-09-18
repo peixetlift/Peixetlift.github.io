@@ -23,10 +23,10 @@ To get more into detail, you can keep reading and discover which kind of attacks
 
 * * *
 <br>
-Password must be <span class="green">more than 15 characters long.</span><br>
-It needs to include some <span class="green">number, symbol and capital letter.</span><br>
-It <span class="green">must not be related to you</span> (e.g. your favourite team, your birthday, etc.) and it can't be composed of common words such as "password" or "hello".<br>
-It isn't a good idea either to substitute letters for numbers as in "h3ll0w0rld", this will be the first an attacker will come up with when performing a dictionary attack (which you can learn about down below).
+* Password must be <span class="green">more than 15 characters long.</span><br>
+* It needs to include some <span class="green">number, symbol and capital letter.</span><br>
+* It <span class="green">must not be related to you</span> (e.g. your favourite team, your birthday, etc.) and it can't be composed of common words such as "password" or "hello".<br>
+* It isn't a good idea either to substitute letters for numbers as in "h3ll0w0rld", this will be the first an attacker will come up with when performing a dictionary attack (which you can learn about down below).
 <br>
 * * *
 
@@ -119,15 +119,15 @@ This clearly shows that the more entropy, the more secure our password will be.
 Let's look at the strength of some examples with length of `l = 13` characters and different character sets : 
 
 
-Using only numbers : `c = 10`
+* Using only numbers : `c = 10`
     Entropy = `37.00`
     Attacker needs to try `6.87E+10` combinations
     
-Using only letters : `c = 26`
+* Using only letters : `c = 26`
     Entropy = `96.21`
     Attacker needs to try `4.58E+28` combinations
     
-Using all keyboard characters : `c = 94`
+* Using all keyboard characters : `c = 94`
     Entropy = `347.84`
     Attacker needs to try `2.57E+104` combinations
 
