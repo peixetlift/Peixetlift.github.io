@@ -26,6 +26,7 @@ To get more into detail, you can keep reading and discover which kind of attacks
 * It needs to include some <b>number, symbol and capital letter.</b><br>
 * It <b>must not be related to you</b> (e.g. your favourite team, your birthday, etc.) and it can't be composed of common words such as `password` or `hello`.<br>
 * It isn't a good idea either to substitute letters for numbers as in `h3ll0w0rld`, this will be the first an attacker will come up with when performing a dictionary attack (which you can learn about down below).
+
 * * *
 
 Some extra thing that you should take into consideration when choosing your password is the <span class="pink">convenience</span> of remembering and typing it. So for example, `QrN}x#hCyBQ7t2)>` is a great password in terms of robustness, but it is really hard for humans to remember random character strings, and a pain to type every time you want to access something.
@@ -34,7 +35,7 @@ Some extra thing that you should take into consideration when choosing your pass
 
 With all of this said, I'd like to introduce you to password managers, which consist of software that creates and stores an <b>encrypted database</b> of your different passwords. A password manager will keep all of your passwords safe and you will only need to remember the master password to access the database. This is increcibly helpful since it opens the possibility to have randomly generated passwords for all of your accounts, such as `chm(6PM@d+dHHT%q`. This way, you only need to follow the <span class="pink">convenience</span> guideline when selecting your master password, and use a website such as [passwordsgenerator.net](https://passwordsgenerator.net/) to generate all of your other passwords (you won't need to remeber them since they are stored permanently and securely).
 
-<img src="https://s3.amazonaws.com/neowin/news/images/uploaded/2017/06/1497027603_keepass_screenshot_2017.jpg" class="border" />
+<img src="https://s3.amazonaws.com/neowin/news/images/uploaded/2017/06/1497027603_keepass_screenshot_2017.jpg" width="70%" class="border" />
 
 As a last tip for the average user : <b>NEVER RE-USE PASSWORDS.</b> For real, do not ever use the same password for more than one site, each site handles its security differently, and if you use the same password for a dubious website that can have a security breach and for your Amazon account, well, you don't need me to tell you what will happen.
 
@@ -43,11 +44,11 @@ As a last tip for the average user : <b>NEVER RE-USE PASSWORDS.</b> For real, do
 To know how passwords can be cracked, first you need to learn how they are stored. The most common way (and the most secure one) passwords are stored inside a company's database is with a `hash` of the password.
 A `hashing function` or algorithm is a mathematical function that is easy to calculate in one way, but nearly impossible to undo, it converts a random input into a fixed-length output.
 
-<img src="https://simpleaswater.com/content/images/2020/01/hashing.7ae85ed9-1.png" class="border" />
+<img src="https://simpleaswater.com/content/images/2020/01/hashing.7ae85ed9-1.png" class="border" width="30%" />
 
 What this does is allowing passwords to be stored with a different form than their original one, and it makes it hard for someone who sees this hash to guess what the original password was.
 
-<img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/2021-09-18%2010_15_24-hashing%20function%20-%20Google%20Search%20%E2%80%94%20Mozilla%20Firefox.png" class="border" />
+<img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/2021-09-18%2010_15_24-hashing%20function%20-%20Google%20Search%20%E2%80%94%20Mozilla%20Firefox.png" class="border" width="50%" />
 
 In conclusion, <b>if you hash the same input twice, you will get the same output</b>, but if you have the output of the hashing function (A.K.A. the hashed password) you cannot obtain the input. Therefore the way of guessing a password is by hashing some string and comparing this hash to the hash of the original password (provided the attacker has somehow obtained the password hash), if the hash of the string matches with the hash of the password, then the string is the password. This hash comparison is the same procedure that takes place when you enter your password to log in to a site, it calculates the hash of what you entered, and compares it to the hash stored in its database (which means that the attacker can directly try combinations of characters in the log in form of the site without needing to calculate hashes if the website doesn't have any protection).
 
@@ -80,7 +81,7 @@ This process might seem endless, but since it is a computer and not a human who 
 
 These kind of attacks are a variant of the brute force ones, they also consist of trying many combinations, but this time the combinations won't be every possible string, they will be a list of common words and patterns taken from lists of previously leaked passwords, common english words, etc. This is why unpredictability of our passwords is of huge importance.
 
-<img src="https://cdn.arstechnica.net/wp-content/uploads/2013/03/IMG_1667.jpg" class="border" />
+<img src="https://cdn.arstechnica.net/wp-content/uploads/2013/03/IMG_1667.jpg" class="border" width="50%" />
 
 Once again, millions of combinations can be tried in seconds, so it's not about trying to get fancy with passwords such as "adam12354" instead of "adam12345" (which by the way is a terrible password since it doesn't meet the length, character set or predictability requirements).
 
@@ -94,21 +95,21 @@ To talk about password robustness, a little insight into the concept of Shannon'
 In information theory, entropy is, by definition, the average level of information or uncertainty that a process can output. For example, The entropy of the result of throwing a biased coin will be lower than that of a normal coin, because the outcome we're expecting from the biased coin is easier to guess before the coin has been thrown.
 Entropy is calculated through the formula :
 
-<img src="https://www.researchgate.net/profile/Jodi-Kearns/publication/34995295/figure/fig16/AS:669479310729234@1536627714604/Shannons-original-Entropy-equation.png" class="border" />
+<img src="https://www.researchgate.net/profile/Jodi-Kearns/publication/34995295/figure/fig16/AS:669479310729234@1536627714604/Shannons-original-Entropy-equation.png" class="border" width="35%" />
 
 Thus a standard's coin entropy is` H = 1/2` because `p = 1/2` and `(1 - p) = 1/2` (being `p` the probability of heads and `(1 - p)` the one of tails), while a biased coin entropy will be something between 0 and 0'5, depending on `p`.
 
 To calculate the entropy of a password, we can take the number of characters in the selected character set and call this `c`, and the length of the password, and call it `l`.
 Then the entropy would be :
 
-<img src="https://github.com/peixetlift/peixetlift.github.io/blob/master/assets/passwordentropy.png?raw=true" class="border" />
+<img src="https://github.com/peixetlift/peixetlift.github.io/blob/master/assets/passwordentropy.png?raw=true" class="border" width="50%" />
 
 As far as password selection concerns, the importance of entropy is that <b>we can calculate the amount of combinations that the attacker has to try in order to crack the password.</b>
 
 Statistically, it only takes half of all the possible combinations to find a match, and the amount of total combinations can be calculated with the following formula : 
 
 <img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/2021-09-18%2019_51_51-Welcome%20To%20Mathcha%20%E2%80%94%20Mozilla%20Firefox.png
-" class="border" />
+" class="border" width="40%" />
 
 This clearly shows that the more entropy, the more secure our password will be.
 
@@ -161,10 +162,10 @@ This has been all for today, thank you guys for reading me and see you next time
   box-shadow: 0px 0px 8px #ADFF2F;
   margin-left: auto;
   margin-right: auto;
-  text-align: center;
-  width: 50% } 
+  text-align: center } 
  .green {
  text-shadow : 0px 0px 4px #ADFF2F }
  .pink {
  text-shadow : 0px 0px 4px #ff6699 }
 </style>
+
