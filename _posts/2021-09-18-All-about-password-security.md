@@ -162,6 +162,7 @@ This has been all for today, thank you guys for reading me and see you next time
   box-shadow: 0px 0px 8px #ADFF2F;
   margin-left: auto;
   margin-right: auto;
+  display: block;
   text-align: center } 
  .green {
  text-shadow : 0px 0px 4px #ADFF2F }
