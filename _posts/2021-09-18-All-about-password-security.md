@@ -28,11 +28,11 @@ To get more into detail, you can keep reading and discover which kind of attacks
 * It isn't a good idea either to substitute letters for numbers as in `h3ll0w0rld`, this will be the first an attacker will come up with when performing a dictionary attack (which you can learn about down below).
 * * *
 
-Some extra thing that you should take into consideration when choosing your password is the <span class="pink">convenience</b> of remembering and typing it. So for example, `QrN}x#hCyBQ7t2)>` is a great password in terms of robustness, but it is really hard for humans to remember random character strings, and a pain to type every time you want to access something.
+Some extra thing that you should take into consideration when choosing your password is the <span class="pink">convenience</span> of remembering and typing it. So for example, `QrN}x#hCyBQ7t2)>` is a great password in terms of robustness, but it is really hard for humans to remember random character strings, and a pain to type every time you want to access something.
 
 ## Password Managers
 
-With all of this said, I'd like to introduce you to password managers, which consist of software that creates and stores an <b>encrypted database</b> of your different passwords. A password manager will keep all of your passwords safe and you will only need to remember the master password to access the database. This is increcibly helpful since it opens the possibility to have randomly generated passwords for all of your accounts, such as `chm(6PM@d+dHHT%q`. This way, you only need to follow the <span class="pink">convenience</b> guideline when selecting your master password, and use a website such as [passwordsgenerator.net](https://passwordsgenerator.net/) to generate all of your other passwords (you won't need to remeber them since they are stored permanently and securely).
+With all of this said, I'd like to introduce you to password managers, which consist of software that creates and stores an <b>encrypted database</b> of your different passwords. A password manager will keep all of your passwords safe and you will only need to remember the master password to access the database. This is increcibly helpful since it opens the possibility to have randomly generated passwords for all of your accounts, such as `chm(6PM@d+dHHT%q`. This way, you only need to follow the <span class="pink">convenience</span> guideline when selecting your master password, and use a website such as [passwordsgenerator.net](https://passwordsgenerator.net/) to generate all of your other passwords (you won't need to remeber them since they are stored permanently and securely).
 
 <img src="https://s3.amazonaws.com/neowin/news/images/uploaded/2017/06/1497027603_keepass_screenshot_2017.jpg" class="border" />
 
@@ -159,7 +159,8 @@ This has been all for today, thank you guys for reading me and see you next time
   border-color: #7FFF00;
   border-style: groove;
   box-shadow: 0px 0px 8px #ADFF2F;
-  display: block;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
   width: 50% } 
  .green {
@@ -167,4 +168,3 @@ This has been all for today, thank you guys for reading me and see you next time
  .pink {
  text-shadow : 0px 0px 4px #ff6699 }
 </style>
-
