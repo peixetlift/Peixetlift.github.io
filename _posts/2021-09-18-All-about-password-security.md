@@ -97,7 +97,7 @@ Entropy is calculated through the formula :
 
 <img src="https://www.researchgate.net/profile/Jodi-Kearns/publication/34995295/figure/fig16/AS:669479310729234@1536627714604/Shannons-original-Entropy-equation.png" class="border" width="35%" />
 
-Thus a standard's coin entropy is` H = 1/2` because `p = 1/2` and `(1 - p) = 1/2` (being `p` the probability of heads and `(1 - p)` the one of tails), while a biased coin entropy will be something between 0 and 0'5, depending on `p`.
+Thus a standard's coin entropy is` H = 1` because `p = 1/2` and `(1 - p) = 1/2` (being `p` the probability of heads and `(1 - p)` the one of tails), while a biased coin entropy will be something between 0 and 1, depending on `p`.
 
 To calculate the entropy of a password, we can take the number of characters in the selected character set and call this `c`, and the length of the password, and call it `l`.
 Then the entropy would be :
