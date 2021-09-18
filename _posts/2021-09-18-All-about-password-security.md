@@ -158,10 +158,8 @@ This has been all for today, thank you guys for reading me and see you next time
   border-width: 0px;
   border-color: #7FFF00;
   border-style: groove;
-  box-shadow: 0px 0px 8px #ADFF2F
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%; } 
+  width: 50%; 
+  box-shadow: 0px 0px 8px #ADFF2F } 
  .green {
  text-shadow : 0px 0px 4px #ADFF2F }
  .pink {
