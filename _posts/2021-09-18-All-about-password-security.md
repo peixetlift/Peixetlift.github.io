@@ -1,6 +1,6 @@
 ---
 title: Password security and how to choose passwords
-published: true
+published: false
 ---
 
 More and more security breaches are beign exploited these days, and some of these lead to password leakages, which means that the user's passwords are made public or shared.
