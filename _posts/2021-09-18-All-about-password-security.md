@@ -44,7 +44,7 @@ As a last tip for the average user : <b>NEVER RE-USE PASSWORDS.</b> For real, do
 To know how passwords can be cracked, first you need to learn how they are stored. The most common way (and the most secure one) passwords are stored inside a company's database is with a `hash` of the password.
 A `hashing function` or algorithm is a mathematical function that is easy to calculate in one way, but nearly impossible to undo, it converts a random input into a fixed-length output.
 
-<img src="https://simpleaswater.com/content/images/2020/01/hashing.7ae85ed9-1.png" class="border" width="30%" />
+<img src="https://simpleaswater.com/content/images/2020/01/hashing.7ae85ed9-1.png" class="border" width="45%" />
 
 What this does is allowing passwords to be stored with a different form than their original one, and it makes it hard for someone who sees this hash to guess what the original password was.
 
@@ -102,7 +102,7 @@ Thus a standard's coin entropy is` H = 1/2` because `p = 1/2` and `(1 - p) = 1/2
 To calculate the entropy of a password, we can take the number of characters in the selected character set and call this `c`, and the length of the password, and call it `l`.
 Then the entropy would be :
 
-<img src="https://github.com/peixetlift/peixetlift.github.io/blob/master/assets/passwordentropy.png?raw=true" class="border" width="50%" />
+<img src="https://github.com/peixetlift/peixetlift.github.io/blob/master/assets/passwordentropy.png?raw=true" class="border" width="35%" />
 
 As far as password selection concerns, the importance of entropy is that <b>we can calculate the amount of combinations that the attacker has to try in order to crack the password.</b>
 
@@ -168,4 +168,3 @@ This has been all for today, thank you guys for reading me and see you next time
  .pink {
  text-shadow : 0px 0px 4px #ff6699 }
 </style>
-
