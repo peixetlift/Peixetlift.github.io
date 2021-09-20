@@ -16,7 +16,7 @@ Let's get onto it, the three factors that affect the strength of your password a
 <ul>
   <li>Length of the password</li>
   <li>Character set that will be used</li>
-  <li>Predicatbility</li>
+  <li>Predictability</li>
 </ul>
 
 To get more into detail, you can keep reading and discover which kind of attacks can affect you and what the math behind password security is, but if you only want to have secure passwords and skip all of the geeky information, these are the guidelines to follow :
