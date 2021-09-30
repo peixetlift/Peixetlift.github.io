@@ -35,8 +35,8 @@ To put it in a nutshell, you want a strong, easy-to-remember password. My tip (a
 
 Some examples of great passwords are :
 
-* My_Friend/Has50%ofMyIQ>:)
-* Alan$Tu#rinW@sNOTEWORTHY
+* `My_Friend/Has50%ofMyIQ>:)`
+* `Alan$Tu#rinW@sNOTEWORTHY`
 
 ### Password Managers
 
