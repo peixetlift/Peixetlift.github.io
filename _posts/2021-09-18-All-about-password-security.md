@@ -3,7 +3,7 @@ title: Password security and how to choose passwords
 published: true
 ---
 
-More and more security breaches are beign exposed these days, and some of these lead to password leakages, which means that the user's passwords are made public or shared.
+More and more security breaches are beign exposed these days, and some of these lead to catastrophic outcomes such as password leakages, in which the users' passwords are made public or shared.
 
 In this post I'll cover what are the best practices to make when choosing a password, and how to manage all the passwords for all of your accounts.
 
@@ -22,18 +22,25 @@ Let's get onto it, the three factors that affect the strength of your password a
 To get more into detail, you can keep reading and discover which kind of attacks can affect you and what the math behind password security is, but if you only want to have secure passwords and skip all of the geeky information, these are the guidelines to follow :
 
 * * *
-* Password must be <b>more than 15 characters long.</b><br>
+* Password must be <b>more than 8 characters long.</b>And you have to know that this is the limit for today's computing power, but this number increases with time, so I would go for something like 15+ characters to make sure I'm safe.<br>
 * It needs to include some <b>number, symbol and capital letter.</b><br>
 * It <b>must not be related to you</b> (e.g. your favourite team, your birthday, etc.) and it can't be composed of common words such as `password` or `hello`.<br>
-* It isn't a good idea either to substitute letters for numbers as in `h3ll0w0rld`, this will be the first an attacker will come up with when performing a dictionary attack (which you can learn about down below).
+* It isn't a good idea either to take a password and use some permutation of it, such as substituting letters for numbers as in `h3ll0w0rld`, this will be the first idea an attacker will come up with when performing a dictionary attack (which you can learn about down below).
 
 * * *
 
 Some extra thing that you should take into consideration when choosing your password is the <span class="pink">convenience</span> of remembering and typing it. So for example, `QrN}x#hCyBQ7t2)>` is a great password in terms of robustness, but it is really hard for humans to remember random character strings, and a pain to type every time you want to access something.
 
+To put it in a nutshell, you want a strong, easy-to-remember password. My tip (and this is what most specialist will say) is to think of it as a <span class=pink>passphrase</span> instead of a password, by combining multiple characters that are easy to remember, but long and random enough to be secure.
+
+Some examples of great passwords are :
+
+* My_Friend/Has50%ofMyIQ>:)
+* Alan$Tu#rinW@sNOTEWORTHY
+
 ### Password Managers
 
-With all of this said, I'd like to introduce you to password managers, which consist of software that creates and stores an <b>encrypted database</b> of your different passwords. A password manager will keep all of your passwords safe and you will only need to remember the master password to access the database. This is increcibly helpful since it opens the possibility to have randomly generated passwords for all of your accounts, such as `chm(6PM@d+dHHT%q`. This way, you only need to follow the <span class="pink">convenience</span> guideline when selecting your master password, and use a website such as [passwordsgenerator.net](https://passwordsgenerator.net/) to generate all of your other passwords (you won't need to remeber them since they are stored permanently and securely).
+With all of this said, I'd like to introduce you to password managers, which consist of applications that create and store an <b>encrypted database</b> of your different passwords. A password manager will keep all of your passwords safe and you will only need to remember the master password to access the database. This is increcibly helpful since it opens the possibility to have randomly generated passwords for all of your accounts, such as `chm(6PM@d+dHHT%q`. This way, you only need to follow the <span class="pink">convenience</span> guideline I just mentioned above when selecting your master password, and use a website such as [passwordsgenerator.net](https://passwordsgenerator.net/) to generate all of your other passwords (you won't need to remeber them since they are stored permanently and securely).
 
 <img src="https://s3.amazonaws.com/neowin/news/images/uploaded/2017/06/1497027603_keepass_screenshot_2017.jpg" width="70%" class="border" />
 
@@ -46,11 +53,11 @@ A `hashing function` or algorithm is a mathematical function that is easy to cal
 
 <img src="https://simpleaswater.com/content/images/2020/01/hashing.7ae85ed9-1.png" class="border" width="45%" />
 
-What this does is allowing passwords to be stored with a different form than their original one, and it makes it hard for someone who sees this hash to guess what the original password was.
+What this does is allowing passwords to be stored in a form that is by all means different from their original one, and it makes it impossible for someone who sees this hash to guess what the original password was.
 
 <img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/2021-09-18%2010_15_24-hashing%20function%20-%20Google%20Search%20%E2%80%94%20Mozilla%20Firefox.png" class="border" width="50%" />
 
-In conclusion, <b>if you hash the same input twice, you will get the same output</b>, but if you have the output of the hashing function (A.K.A. the hashed password) you cannot obtain the input. Therefore the way of guessing a password is by hashing some string and comparing this hash to the hash of the original password (provided the attacker has somehow obtained the password hash), if the hash of the string matches with the hash of the password, then the string is the password. This hash comparison is the same procedure that takes place when you enter your password to log in to a site, it calculates the hash of what you entered, and compares it to the hash stored in its database (which means that the attacker can directly try combinations of characters in the log in form of the site without needing to calculate hashes if the website doesn't have any protection).
+In conclusion, <b>if you hash the same input twice, you will get the same output</b>, but if you have the output of the hashing function (A.K.A. the hashed password) you cannot obtain the input. Therefore the way of guessing a password is by hashing some string and comparing this hash to the hash of the original password (provided the attacker has somehow obtained the password hash), if the hash of the string matches with the hash of the password, then the string is the password (I will not discuss hash collisions in this post but you can do further research since it is a very interesting topic). This hash comparison is the same procedure that takes place when you enter your password to log in to a site, it calculates the hash of what you entered, and compares it to the hash stored in the site's database. This means that the attacker can directly try combinations of characters in the log in form of the site without needing to calculate hashes if the website doesn't have any protection against brute force attacks.
 
 Getting deeper into detail, let's break down what kinds of attacks you can fall victim of :
 
@@ -69,17 +76,21 @@ What a pure brute force attack consists of, is essentially trying every single c
 >  <li>...</li>
 >  <li>aa</li>
 >  <li>ab</li>
+>  <li>ac</li>
 >  <li>...</li>
 >  <li>aaa</li>
 >  <li>aab</li>
 >  <li>aac</li>
+>  <li>aad</li>
+>  <li>...</li>
 ></ol>
 
-This process might seem endless, but since it is a computer and not a human who will be running it, it can literally take seconds to crack a password if it the password isn't long enough and the character set doesn't fit the broadness requirements.
+This process might seem endless, but since it is a computer and not a human who will be taking care of it, it can literally take seconds to crack a password if the password isn't long enough and the character set doesn't fit the broadness requirements.
 
 ### Dictionary attacks
 
-These kind of attacks are a variant of the brute force ones, they also consist of trying many combinations, but this time the combinations won't be every possible string, they will be a list of common words and patterns taken from lists of previously leaked passwords, common english words, etc. This is why unpredictability of our passwords is of huge importance.
+These kind of attacks are a variant of the brute force ones, they also consist of trying many combinations, but this time the combinations won't be every possible string, they will be carefully selected from a list of common words and patterns taken from lists of previously leaked passwords, common english words, etc. This is why unpredictability of our passwords is of huge importance.
+Furthermore, attackers can and will do some research on what you like, who you follow, etc. and craft their own wordlists to attack you, I hope this makes you see how important it is to have a password completely unrelated to your insterests or personal data.
 
 <img src="https://cdn.arstechnica.net/wp-content/uploads/2013/03/IMG_1667.jpg" class="border" width="50%" />
 
@@ -106,7 +117,7 @@ Then the entropy would be :
 
 As far as password selection concerns, the importance of entropy is that <b>we can calculate the amount of combinations that the attacker has to try in order to crack the password.</b>
 
-Statistically, it only takes half of all the possible combinations to find a match, and the amount of total combinations can be calculated with the following formula : 
+Statistically, it only takes half of all the possible combinations to find a match (a hash collision) and hence crack the password, and the amount of total combinations can be calculated with the following formula : 
 
 <img src="https://raw.githubusercontent.com/peixetlift/peixetlift.github.io/master/assets/2021-09-18%2019_51_51-Welcome%20To%20Mathcha%20%E2%80%94%20Mozilla%20Firefox.png
 " class="border" width="40%" />
@@ -137,9 +148,9 @@ As you can see, including symbols, capital letters and numbers drastically incre
 
 Until this point, I have talked about an attacker being able to try many combinations in a matter of seconds, but how many of them can they exactly run?
 
-I'm sorry to tell you that this question doesn't have an easy answer, since this speed <b>totally depends on the attacker's computer</b> and the <b>number of iterations</b> that the <b>hashing algorithm</b> requires to obtain a result.
+I'm sorry to tell you that this question doesn't have an easy answer, since this speed <b>totally depends on the attacker's computer</b> and the <b>number of iterations</b> that the <b>hashing algorithm</b> requires to obtain a result. What is for sure, is that it takes less time to crack a password everyday, due to the pace at which technology evolves nowadays, so it is always better to be safe than sorry and add that extra lentgh to your password.
 
-So, we cannot estimate how much time it would take an attacker to crack a password without knowing his equipment, but what we can do is make our password as secure as possible.
+As we've just seen, we cannot estimate how much time it would take an attacker to crack a password without knowing his equipment, but what we can do is make our password as secure as possible by making sure it does have a high entropy.
 
 ## 4 - Extra tips
 
